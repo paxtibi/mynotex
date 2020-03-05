@@ -1,0 +1,28 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfmCommentsSubjects','FORMDATA',[
+  'TPF0'#19'TfmCommentsSubjects'#18'fmCommentsSubjects'#4'Left'#3#254#2#6'Heigh'
+  +'t'#3'c'#1#3'Top'#3#17#1#5'Width'#3'%'#2#13'ActiveControl'#7#9'dbSubName'#10
+  +'AlphaBlend'#9#11'BorderIcons'#11#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'
+  +#6#16'Subject comments'#12'ClientHeight'#3'c'#1#11'ClientWidth'#3'%'#2#10'Ke'
+  +'yPreview'#9#10'OnActivate'#7#12'FormActivate'#7'OnClose'#7#9'FormClose'#8'O'
+  +'nCreate'#7#10'FormCreate'#10'OnKeyPress'#7#12'FormKeyPress'#8'Position'#7#14
+  +'poScreenCenter'#13'ShowInTaskBar'#7#7'stNever'#10'LCLVersion'#6#7'1.6.2.0'#0
+  +#6'TLabel'#9'lbSubName'#4'Left'#2#24#6'Height'#2#20#3'Top'#2#16#5'Width'#2'M'
+  +#7'Caption'#6#13'Subject title'#11'ParentColor'#8#0#0#6'TLabel'#10'lbComment'
+  +'s'#4'Left'#2#24#6'Height'#2#20#3'Top'#2'P'#5'Width'#2'E'#7'Caption'#6#8'Com'
+  +'ments'#11'ParentColor'#8#0#0#7'TDBEdit'#9'dbSubName'#4'Left'#2#24#6'Height'
+  +#2'%'#3'Top'#2'('#5'Width'#3#246#1#9'DataField'#6#12'SubjectsName'#10'DataSo'
+  +'urce'#7#17'fmMain.dsSubjects'#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0
+  +#8'CharCase'#7#8'ecNormal'#9'MaxLength'#2#0#8'TabOrder'#2#0#0#0#7'TDBMemo'#13
+  +'dbSubComments'#4'Left'#2#24#6'Height'#3#192#0#3'Top'#2'h'#5'Width'#3#246#1#7
+  +'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#9'DataField'#6#16'S'
+  +'ubjectsComments'#10'DataSource'#7#17'fmMain.dsSubjects'#9'OnKeyDown'#7#20'd'
+  +'bSubCommentsKeyDown'#10'ScrollBars'#7#14'ssAutoVertical'#8'TabOrder'#2#1#0#0
+  +#7'TButton'#11'bnSubCommOK'#4'Left'#3#169#1#6'Height'#2#31#3'Top'#3'4'#1#5'W'
+  +'idth'#2'e'#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Caption'#6#2'OK'#7'OnCl'
+  +'ick'#7#16'bnSubCommOKClick'#8'TabOrder'#2#2#0#0#7'TButton'#15'bnSubCommCanc'
+  +'el'#4'Left'#3'.'#1#6'Height'#2#31#3'Top'#3'4'#1#5'Width'#2'e'#7'Anchors'#11
+  +#7'akRight'#8'akBottom'#0#7'Caption'#6#6'Cancel'#7'OnClick'#7#20'bnSubCommCa'
+  +'ncelClick'#8'TabOrder'#2#3#0#0#0
+]);

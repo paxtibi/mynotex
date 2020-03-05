@@ -1,0 +1,40 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfmImpExp','FORMDATA',[
+  'TPF0'#9'TfmImpExp'#8'fmImpExp'#4'Left'#3'_'#2#6'Height'#3#173#1#3'Top'#3#31#1
+  +#5'Width'#3#244#1#13'ActiveControl'#7#14'cbReadSubjects'#10'AlphaBlend'#9#11
+  +'BorderIcons'#11#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#11'Importation'
+  +#12'ClientHeight'#3#173#1#11'ClientWidth'#3#244#1#9'FormStyle'#7#11'fsStayOn'
+  +'Top'#7'OnClose'#7#9'FormClose'#8'OnCreate'#7#10'FormCreate'#8'Position'#7#14
+  +'poScreenCenter'#13'ShowInTaskBar'#7#7'stNever'#10'LCLVersion'#6#7'1.6.2.0'#0
+  +#6'TLabel'#10'lbSubjects'#4'Left'#2#16#6'Height'#2#20#3'Top'#2#16#5'Width'#2
+  +'7'#7'Caption'#6#8'Subjects'#11'ParentColor'#8#0#0#13'TCheckListBox'#14'cbRe'
+  +'adSubjects'#4'Left'#2#16#6'Height'#3#242#0#3'Top'#2'('#5'Width'#3#211#1#7'A'
+  +'nchors'#11#5'akTop'#6'akLeft'#7'akRight'#8'akBottom'#0#7'Columns'#2#2#10'It'
+  +'emHeight'#2#0#11'MultiSelect'#9#8'TabOrder'#2#0#8'TopIndex'#2#255#0#0#7'TBu'
+  +'tton'#8'bnImpExp'#4'Left'#3'~'#1#6'Height'#2#31#3'Top'#3'~'#1#5'Width'#2'e'
+  +#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Caption'#6#6'Import'#7'OnClick'#7
+  +#12'ImportExport'#8'TabOrder'#2#3#0#0#7'TButton'#7'bnClose'#4'Left'#3#254#0#6
+  +'Height'#2#31#3'Top'#3'~'#1#5'Width'#2'e'#7'Anchors'#11#7'akRight'#8'akBotto'
+  +'m'#0#7'Caption'#6#6'Cancel'#7'OnClick'#7#12'bnCloseClick'#8'TabOrder'#2#2#0
+  +#0#12'TProgressBar'#13'pbProgressBar'#4'Left'#2#16#6'Height'#2#20#3'Top'#3
+  +#131#1#5'Width'#3#216#0#7'Anchors'#11#6'akLeft'#7'akRight'#8'akBottom'#0#6'S'
+  +'mooth'#9#4'Step'#2#1#8'TabOrder'#2#1#0#0#9'TCheckBox'#12'cbDeleteData'#4'Le'
+  +'ft'#2#16#6'Height'#2#24#3'Top'#3'S'#1#5'Width'#3#17#1#7'Anchors'#11#6'akLef'
+  +'t'#8'akBottom'#0#7'Caption'#6'(Delete imported data from original file.'#8
+  +'TabOrder'#2#4#0#0#9'TCheckBox'#13'cbSelDeselAll'#4'Left'#2#16#6'Height'#2#24
+  +#3'Top'#3'1'#1#5'Width'#3#172#0#7'Anchors'#11#6'akLeft'#8'akBottom'#0#7'Capt'
+  +'ion'#6#23'Select and deselect all'#7'OnClick'#7#18'cbSelDeselAllClick'#8'Ta'
+  +'bOrder'#2#5#0#0#9'TCheckBox'#11'cbNoExpDate'#4'Left'#2#16#6'Height'#2#24#3
+  +'Top'#3'S'#1#5'Width'#2'j'#7'Anchors'#11#6'akLeft'#8'akBottom'#0#7'Caption'#6
+  +#12'Export dates'#8'TabOrder'#2#6#7'Visible'#8#0#0#15'TSqlite3Dataset'#14'sq'
+  +'ReadSubjects'#16'AutoIncrementKey'#9#11'SaveOnClose'#9#13'SaveOnRefetch'#9#4
+  +'left'#2'`'#3'top'#2'H'#0#0#15'TSqlite3Dataset'#11'sqReadNotes'#16'AutoIncre'
+  +'mentKey'#9#11'SaveOnClose'#9#13'SaveOnRefetch'#9#4'left'#2'`'#3'top'#3#144#0
+  +#0#0#15'TSqlite3Dataset'#15'sqWriteSubjects'#16'AutoIncrementKey'#9#11'SaveO'
+  +'nClose'#9#13'SaveOnRefetch'#9#4'left'#3'P'#1#3'top'#2'X'#0#0#15'TSqlite3Dat'
+  +'aset'#12'sqWriteNotes'#16'AutoIncrementKey'#9#11'SaveOnClose'#9#13'SaveOnRe'
+  +'fetch'#9#4'left'#3'H'#1#3'top'#3#160#0#0#0#15'TSqlite3Dataset'#13'sqWriteDe'
+  +'lRec'#4'left'#3#152#0#3'top'#3#224#0#0#0#15'TSqlite3Dataset'#12'sqReadDelRe'
+  +'c'#4'left'#3'('#1#3'top'#3#232#0#0#0#0
+]);

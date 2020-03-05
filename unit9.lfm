@@ -1,0 +1,262 @@
+object fmCalendar: TfmCalendar
+  Left = 617
+  Height = 730
+  Top = 206
+  Width = 1043
+  AlphaBlend = True
+  BorderIcons = []
+  Caption = 'Diary'
+  ClientHeight = 730
+  ClientWidth = 1043
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.6.2.0'
+  object grCalGrid: TStringGrid
+    Left = 20
+    Height = 380
+    Top = 20
+    Width = 1003
+    Align = alClient
+    AutoEdit = False
+    BorderSpacing.Around = 20
+    ColCount = 2
+    DefaultColWidth = 50
+    ExtendedSelect = False
+    FixedCols = 0
+    FixedRows = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goSmoothScroll]
+    ScrollBars = ssAutoVertical
+    TabOrder = 0
+    OnDrawCell = grCalGridDrawCell
+    OnMouseWheelDown = grCalGridMouseWheelDown
+    OnMouseWheelUp = grCalGridMouseWheelUp
+  end
+  object pnCal: TPanel
+    Left = 0
+    Height = 310
+    Top = 420
+    Width = 1043
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 310
+    ClientWidth = 1043
+    TabOrder = 1
+    object Bevel1: TBevel
+      Left = 20
+      Height = 43
+      Top = 12
+      Width = 280
+      Shape = bsFrame
+    end
+    object clCalStart: TCalendar
+      Left = 20
+      Height = 198
+      Top = 96
+      Width = 280
+      DateTime = 42101
+      OnChange = clCalEndChange
+      OnClick = clCalStartClick
+      TabOrder = 1
+    end
+    object clCalEnd: TCalendar
+      Left = 320
+      Height = 198
+      Top = 96
+      Width = 280
+      DateTime = 42101
+      OnChange = clCalEndChange
+      OnClick = clCalStartClick
+      TabOrder = 2
+    end
+    object lbStartDate: TLabel
+      Left = 20
+      Height = 20
+      Top = 71
+      Width = 218
+      Caption = 'Start date greater than or equal to'
+      ParentColor = False
+    end
+    object lbEndDate: TLabel
+      Left = 320
+      Height = 20
+      Top = 71
+      Width = 191
+      Caption = 'End date less than or equal to'
+      ParentColor = False
+    end
+    object bnTodayDiary: TButton
+      Left = 900
+      Height = 31
+      Top = 141
+      Width = 122
+      Anchors = [akTop, akRight]
+      Caption = 'Today'
+      OnClick = bnTodayDiaryClick
+      TabOrder = 5
+    end
+    object bnClose: TButton
+      Left = 947
+      Height = 31
+      Top = 263
+      Width = 75
+      Anchors = [akTop, akRight]
+      Caption = 'OK'
+      OnClick = bnCloseClick
+      TabOrder = 7
+    end
+    object bnExportDiary: TButton
+      Left = 900
+      Height = 31
+      Top = 186
+      Width = 122
+      Anchors = [akTop, akRight]
+      Caption = 'Export'
+      OnClick = bnExportDiaryClick
+      TabOrder = 6
+    end
+    object lbxResources: TListBox
+      Left = 621
+      Height = 198
+      Top = 96
+      Width = 256
+      Anchors = [akTop, akLeft, akRight]
+      Color = clBtnFace
+      ItemHeight = 0
+      OnClick = lbxResourcesClick
+      ScrollWidth = 254
+      TabOrder = 3
+      TopIndex = -1
+    end
+    object lbResources: TLabel
+      Left = 621
+      Height = 20
+      Top = 71
+      Width = 120
+      Caption = 'Filter on resources'
+      ParentColor = False
+    end
+    object lbSelAct: TLabel
+      Left = 36
+      Height = 20
+      Top = 25
+      Width = 132
+      Caption = 'Selected activities: 0'
+      ParentColor = False
+    end
+    object bvLine: TBevel
+      Left = 20
+      Height = 8
+      Top = 0
+      Width = 1002
+      Anchors = [akTop, akLeft, akRight]
+      Shape = bsTopLine
+    end
+    object bnMonthDiary: TButton
+      Left = 900
+      Height = 31
+      Top = 96
+      Width = 122
+      Anchors = [akTop, akRight]
+      Caption = 'A month'
+      OnClick = bnMonthDiaryClick
+      TabOrder = 4
+    end
+    object rgCalRange: TRadioGroup
+      Left = 320
+      Height = 43
+      Top = 12
+      Width = 559
+      Anchors = [akLeft, akRight, akBottom]
+      AutoFill = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 41
+      ClientWidth = 557
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Activities of all notes'
+        'Activities of the current note'
+      )
+      OnClick = rgCalRangeClick
+      TabOrder = 0
+    end
+  end
+  object dsCal: TDataSource
+    DataSet = bfCal
+    left = 178
+    top = 62
+  end
+  object bfCal: TBufDataset
+    PacketRecords = -1
+    IndexFieldNames = 'mdCalEndDate; mdCalStartDate'
+    FieldDefs = <    
+      item
+        Name = 'mdCalNoteID'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'mdCalNoteTitle'
+        DataType = ftString
+        Size = 200
+      end    
+      item
+        Name = 'mdCalCode'
+        DataType = ftString
+        Size = 10
+      end    
+      item
+        Name = 'mdCalState'
+        DataType = ftString
+        Size = 10
+      end    
+      item
+        Name = 'mdCalName'
+        DataType = ftString
+        Size = 200
+      end    
+      item
+        Name = 'mdCalStartDate'
+        DataType = ftDate
+      end    
+      item
+        Name = 'mdCalEndDate'
+        DataType = ftDate
+      end    
+      item
+        Name = 'mdCalResources'
+        DataType = ftString
+        Size = 200
+      end    
+      item
+        Name = 'mdCalPriority'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'mdCalCompletion'
+        DataType = ftInteger
+      end    
+      item
+        Name = 'mdCalCost'
+        DataType = ftString
+        Size = 20
+      end    
+      item
+        Name = 'mdCalNotes'
+        DataType = ftMemo
+      end>
+    left = 332
+    top = 60
+  end
+end

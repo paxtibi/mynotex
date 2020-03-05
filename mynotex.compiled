@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1488055450"/>
+  <Params Value=" -MObjFPC -Scgi -Cg -O3 -g -gl -l -vewnhibq -Fl/opt/gnome/lib -Fu/home/massimo/.lazarus/lib/ZVDateTimeCtrls/lib/x86_64-linux -Fu/home/massimo/.lazarus/lib/TurboPowerIPro/units/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/sqlite3laz/lib/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/RunTimeTypeInfoControls/lib/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/Printer4Lazarus/lib/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/IDEIntf/units/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/richmemopackage/lib/x86_64-linux -Fu/home/massimo/.lazarus/lib/LazControls/lib/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/cairocanvas_pkg/lib/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/units/x86_64-linux/gtk2 -Fu/home/massimo/.lazarus/lib/LCLBase/units/x86_64-linux -Fu/home/massimo/.lazarus/lib/LazUtils/lib/x86_64-linux -Fu/home/massimo/.lazarus/lib/dcpcrypt/lib/x86_64-linux -Fu/home/massimo/.lazarus/lib/units/x86_64-linux -Fu/home/massimo/Sorgenti/MyNotex_1.4.1.0/ -dLCL -dLCLgtk2 -dHtml_Print mynotex.pas"/>
+</CONFIG>

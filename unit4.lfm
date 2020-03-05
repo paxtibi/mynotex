@@ -1,0 +1,81 @@
+object fmCommentsSubjects: TfmCommentsSubjects
+  Left = 766
+  Height = 355
+  Top = 273
+  Width = 549
+  ActiveControl = dbSubName
+  AlphaBlend = True
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Subject comments'
+  ClientHeight = 355
+  ClientWidth = 549
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.6.2.0'
+  object lbSubName: TLabel
+    Left = 24
+    Height = 20
+    Top = 16
+    Width = 77
+    Caption = 'Subject title'
+    ParentColor = False
+  end
+  object lbComments: TLabel
+    Left = 24
+    Height = 20
+    Top = 80
+    Width = 69
+    Caption = 'Comments'
+    ParentColor = False
+  end
+  object dbSubName: TDBEdit
+    Left = 24
+    Height = 37
+    Top = 40
+    Width = 502
+    DataField = 'SubjectsName'
+    DataSource = fmMain.dsSubjects
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object dbSubComments: TDBMemo
+    Left = 24
+    Height = 192
+    Top = 104
+    Width = 502
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    DataField = 'SubjectsComments'
+    DataSource = fmMain.dsSubjects
+    OnKeyDown = dbSubCommentsKeyDown
+    ScrollBars = ssAutoVertical
+    TabOrder = 1
+  end
+  object bnSubCommOK: TButton
+    Left = 425
+    Height = 31
+    Top = 308
+    Width = 101
+    Anchors = [akRight, akBottom]
+    Caption = 'OK'
+    OnClick = bnSubCommOKClick
+    TabOrder = 2
+  end
+  object bnSubCommCancel: TButton
+    Left = 302
+    Height = 31
+    Top = 308
+    Width = 101
+    Anchors = [akRight, akBottom]
+    Caption = 'Cancel'
+    OnClick = bnSubCommCancelClick
+    TabOrder = 3
+  end
+end

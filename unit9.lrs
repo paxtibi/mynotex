@@ -1,0 +1,74 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfmCalendar','FORMDATA',[
+  'TPF0'#11'TfmCalendar'#10'fmCalendar'#4'Left'#3'i'#2#6'Height'#3#218#2#3'Top'
+  +#3#206#0#5'Width'#3#19#4#10'AlphaBlend'#9#11'BorderIcons'#11#0#7'Caption'#6#5
+  +'Diary'#12'ClientHeight'#3#218#2#11'ClientWidth'#3#19#4#9'FormStyle'#7#11'fs'
+  +'StayOnTop'#10'KeyPreview'#9#7'OnClose'#7#9'FormClose'#8'OnCreate'#7#10'Form'
+  +'Create'#10'OnKeyPress'#7#12'FormKeyPress'#6'OnShow'#7#8'FormShow'#8'Positio'
+  +'n'#7#14'poScreenCenter'#13'ShowInTaskBar'#7#7'stNever'#10'LCLVersion'#6#7'1'
+  +'.6.2.0'#0#11'TStringGrid'#9'grCalGrid'#4'Left'#2#20#6'Height'#3'|'#1#3'Top'
+  +#2#20#5'Width'#3#235#3#5'Align'#7#8'alClient'#8'AutoEdit'#8#20'BorderSpacing'
+  +'.Around'#2#20#8'ColCount'#2#2#15'DefaultColWidth'#2'2'#14'ExtendedSelect'#8
+  +#9'FixedCols'#2#0#9'FixedRows'#2#0#7'Options'#11#15'goFixedVertLine'#15'goFi'
+  +'xedHorzLine'#10'goVertLine'#10'goHorzLine'#14'goSmoothScroll'#0#10'ScrollBa'
+  +'rs'#7#14'ssAutoVertical'#8'TabOrder'#2#0#10'OnDrawCell'#7#17'grCalGridDrawC'
+  +'ell'#16'OnMouseWheelDown'#7#23'grCalGridMouseWheelDown'#14'OnMouseWheelUp'#7
+  +#21'grCalGridMouseWheelUp'#0#0#6'TPanel'#5'pnCal'#4'Left'#2#0#6'Height'#3'6'
+  +#1#3'Top'#3#164#1#5'Width'#3#19#4#5'Align'#7#8'alBottom'#10'BevelOuter'#7#6
+  +'bvNone'#12'ClientHeight'#3'6'#1#11'ClientWidth'#3#19#4#8'TabOrder'#2#1#0#6
+  +'TBevel'#6'Bevel1'#4'Left'#2#20#6'Height'#2'+'#3'Top'#2#12#5'Width'#3#24#1#5
+  +'Shape'#7#7'bsFrame'#0#0#9'TCalendar'#10'clCalStart'#4'Left'#2#20#6'Height'#3
+  +#198#0#3'Top'#2'`'#5'Width'#3#24#1#8'DateTime'#5#0#0#0#0#0#0'u'#164#14'@'#8
+  +'OnChange'#7#14'clCalEndChange'#7'OnClick'#7#15'clCalStartClick'#8'TabOrder'
+  +#2#1#0#0#9'TCalendar'#8'clCalEnd'#4'Left'#3'@'#1#6'Height'#3#198#0#3'Top'#2
+  +'`'#5'Width'#3#24#1#8'DateTime'#5#0#0#0#0#0#0'u'#164#14'@'#8'OnChange'#7#14
+  +'clCalEndChange'#7'OnClick'#7#15'clCalStartClick'#8'TabOrder'#2#2#0#0#6'TLab'
+  +'el'#11'lbStartDate'#4'Left'#2#20#6'Height'#2#20#3'Top'#2'G'#5'Width'#3#218#0
+  +#7'Caption'#6'#Start date greater than or equal to'#11'ParentColor'#8#0#0#6
+  +'TLabel'#9'lbEndDate'#4'Left'#3'@'#1#6'Height'#2#20#3'Top'#2'G'#5'Width'#3
+  +#191#0#7'Caption'#6#30'End date less than or equal to'#11'ParentColor'#8#0#0
+  +#7'TButton'#12'bnTodayDiary'#4'Left'#3#132#3#6'Height'#2#31#3'Top'#3#141#0#5
+  +'Width'#2'z'#7'Anchors'#11#5'akTop'#7'akRight'#0#7'Caption'#6#5'Today'#7'OnC'
+  +'lick'#7#17'bnTodayDiaryClick'#8'TabOrder'#2#5#0#0#7'TButton'#7'bnClose'#4'L'
+  +'eft'#3#179#3#6'Height'#2#31#3'Top'#3#7#1#5'Width'#2'K'#7'Anchors'#11#5'akTo'
+  +'p'#7'akRight'#0#7'Caption'#6#2'OK'#7'OnClick'#7#12'bnCloseClick'#8'TabOrder'
+  +#2#7#0#0#7'TButton'#13'bnExportDiary'#4'Left'#3#132#3#6'Height'#2#31#3'Top'#3
+  +#186#0#5'Width'#2'z'#7'Anchors'#11#5'akTop'#7'akRight'#0#7'Caption'#6#6'Expo'
+  +'rt'#7'OnClick'#7#18'bnExportDiaryClick'#8'TabOrder'#2#6#0#0#8'TListBox'#12
+  +'lbxResources'#4'Left'#3'm'#2#6'Height'#3#198#0#3'Top'#2'`'#5'Width'#3#0#1#7
+  +'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#5'Color'#7#9'clBtnFace'#10'Item'
+  +'Height'#2#0#7'OnClick'#7#17'lbxResourcesClick'#11'ScrollWidth'#3#254#0#8'Ta'
+  +'bOrder'#2#3#8'TopIndex'#2#255#0#0#6'TLabel'#11'lbResources'#4'Left'#3'm'#2#6
+  +'Height'#2#20#3'Top'#2'G'#5'Width'#2'x'#7'Caption'#6#19'Filter on resources'
+  +#11'ParentColor'#8#0#0#6'TLabel'#8'lbSelAct'#4'Left'#2'$'#6'Height'#2#20#3'T'
+  +'op'#2#25#5'Width'#3#132#0#7'Caption'#6#22'Selected activities: 0'#11'Parent'
+  +'Color'#8#0#0#6'TBevel'#6'bvLine'#4'Left'#2#20#6'Height'#2#8#3'Top'#2#0#5'Wi'
+  +'dth'#3#234#3#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRight'#0#5'Shape'#7#9'bsT'
+  +'opLine'#0#0#7'TButton'#12'bnMonthDiary'#4'Left'#3#132#3#6'Height'#2#31#3'To'
+  +'p'#2'`'#5'Width'#2'z'#7'Anchors'#11#5'akTop'#7'akRight'#0#7'Caption'#6#7'A '
+  +'month'#7'OnClick'#7#17'bnMonthDiaryClick'#8'TabOrder'#2#4#0#0#11'TRadioGrou'
+  +'p'#10'rgCalRange'#4'Left'#3'@'#1#6'Height'#2'+'#3'Top'#2#12#5'Width'#3'/'#2
+  +#7'Anchors'#11#6'akLeft'#7'akRight'#8'akBottom'#0#8'AutoFill'#9#28'ChildSizi'
+  +'ng.LeftRightSpacing'#2#6#29'ChildSizing.EnlargeHorizontal'#7#24'crsHomogeno'
+  +'usChildResize'#27'ChildSizing.EnlargeVertical'#7#24'crsHomogenousChildResiz'
+  +'e'#28'ChildSizing.ShrinkHorizontal'#7#14'crsScaleChilds'#26'ChildSizing.Shr'
+  +'inkVertical'#7#14'crsScaleChilds'#18'ChildSizing.Layout'#7#29'cclLeftToRigh'
+  +'tThenTopToBottom'#27'ChildSizing.ControlsPerLine'#2#2#12'ClientHeight'#2')'
+  +#11'ClientWidth'#3'-'#2#7'Columns'#2#2#9'ItemIndex'#2#0#13'Items.Strings'#1#6
+  +#23'Activities of all notes'#6#30'Activities of the current note'#0#7'OnClic'
+  +'k'#7#15'rgCalRangeClick'#8'TabOrder'#2#0#0#0#0#11'TDataSource'#5'dsCal'#7'D'
+  +'ataSet'#7#5'bfCal'#4'left'#3#178#0#3'top'#2'>'#0#0#11'TBufDataset'#5'bfCal'
+  +#13'PacketRecords'#2#255#15'IndexFieldNames'#6#28'mdCalEndDate; mdCalStartDa'
+  +'te'#9'FieldDefs'#14#1#4'Name'#6#11'mdCalNoteID'#8'DataType'#7#9'ftInteger'#0
+  +#1#4'Name'#6#14'mdCalNoteTitle'#8'DataType'#7#8'ftString'#4'Size'#3#200#0#0#1
+  +#4'Name'#6#9'mdCalCode'#8'DataType'#7#8'ftString'#4'Size'#2#10#0#1#4'Name'#6
+  +#10'mdCalState'#8'DataType'#7#8'ftString'#4'Size'#2#10#0#1#4'Name'#6#9'mdCal'
+  +'Name'#8'DataType'#7#8'ftString'#4'Size'#3#200#0#0#1#4'Name'#6#14'mdCalStart'
+  ,'Date'#8'DataType'#7#6'ftDate'#0#1#4'Name'#6#12'mdCalEndDate'#8'DataType'#7#6
+  +'ftDate'#0#1#4'Name'#6#14'mdCalResources'#8'DataType'#7#8'ftString'#4'Size'#3
+  +#200#0#0#1#4'Name'#6#13'mdCalPriority'#8'DataType'#7#9'ftInteger'#0#1#4'Name'
+  +#6#15'mdCalCompletion'#8'DataType'#7#9'ftInteger'#0#1#4'Name'#6#9'mdCalCost'
+  +#8'DataType'#7#8'ftString'#4'Size'#2#20#0#1#4'Name'#6#10'mdCalNotes'#8'DataT'
+  +'ype'#7#6'ftMemo'#0#0#4'left'#3'L'#1#3'top'#2'<'#0#0#0
+]);

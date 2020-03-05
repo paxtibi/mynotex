@@ -1,0 +1,26 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfmEncryption','FORMDATA',[
+  'TPF0'#13'TfmEncryption'#12'fmEncryption'#4'Left'#3'$'#2#6'Height'#3#247#0#3
+  +'Top'#3#180#1#5'Width'#3#144#1#13'ActiveControl'#7#6'edPwd1'#10'AlphaBlend'#9
+  +#11'BorderIcons'#11#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#7'Encrypt'
+  +#12'ClientHeight'#3#247#0#11'ClientWidth'#3#144#1#9'FormStyle'#7#11'fsStayOn'
+  +'Top'#10'KeyPreview'#9#8'OnCreate'#7#10'FormCreate'#10'OnKeyPress'#7#12'Form'
+  +'KeyPress'#6'OnShow'#7#8'FormShow'#8'Position'#7#14'poScreenCenter'#13'ShowI'
+  +'nTaskBar'#7#7'stNever'#10'LCLVersion'#6#7'1.6.2.0'#0#6'TLabel'#9'lbEncrypt'
+  +#4'Left'#2' '#6'Height'#2#20#3'Top'#2#24#5'Width'#3#224#0#7'Caption'#6'#Inse'
+  +'rt password in the fields below'#11'ParentColor'#8#0#0#7'TButton'#7'bnClose'
+  +#4'Left'#2'p'#6'Height'#2#31#3'Top'#3#192#0#5'Width'#2'e'#7'Anchors'#11#7'ak'
+  +'Right'#8'akBottom'#0#7'Caption'#6#6'Cancel'#7'OnClick'#7#12'bnCloseClick'#8
+  +'TabOrder'#2#3#0#0#7'TButton'#9'bnEncrypt'#4'Left'#3#238#0#6'Height'#2#31#3
+  +'Top'#3#192#0#5'Width'#3#135#0#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Capt'
+  +'ion'#6#7'Encrypt'#7'OnClick'#7#14'bnEncryptClick'#8'TabOrder'#2#4#0#0#5'TEd'
+  +'it'#6'edPwd1'#4'Left'#2' '#6'Height'#2'%'#3'Top'#2'@'#5'Width'#3'U'#1#8'Ech'
+  +'oMode'#7#10'emPassword'#10'OnKeyPress'#7#14'edPwd1KeyPress'#12'PasswordChar'
+  +#6#1'*'#8'TabOrder'#2#0#0#0#5'TEdit'#6'edPwd2'#4'Left'#2' '#6'Height'#2'%'#3
+  +'Top'#2'p'#5'Width'#3'U'#1#8'EchoMode'#7#10'emPassword'#10'OnKeyPress'#7#14
+  +'edPwd2KeyPress'#12'PasswordChar'#6#1'*'#8'TabOrder'#2#1#0#0#9'TCheckBox'#10
+  +'cbShowChar'#4'Left'#2' '#6'Height'#2#24#3'Top'#3#152#0#5'Width'#3#132#0#7'C'
+  +'aption'#6#15'Show characters'#8'OnChange'#7#16'cbShowCharChange'#8'TabOrder'
+  +#2#2#0#0#0
+]);

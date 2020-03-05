@@ -1,0 +1,29 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfmMoveNote','FORMDATA',[
+  'TPF0'#11'TfmMoveNote'#10'fmMoveNote'#4'Left'#3#134#1#6'Height'#3#144#1#3'Top'
+  +#3'8'#1#5'Width'#3#244#1#13'ActiveControl'#7#11'grMoveNotes'#10'AlphaBlend'#9
+  +#11'BorderIcons'#11#0#11'BorderStyle'#7#8'bsDialog'#7'Caption'#6#9'Move note'
+  +#12'ClientHeight'#3#144#1#11'ClientWidth'#3#244#1#9'FormStyle'#7#11'fsStayOn'
+  +'Top'#10'KeyPreview'#9#7'OnClose'#7#9'FormClose'#8'OnCreate'#7#10'FormCreate'
+  +#10'OnKeyPress'#7#12'FormKeyPress'#8'Position'#7#14'poScreenCenter'#13'ShowI'
+  +'nTaskBar'#7#7'stNever'#10'LCLVersion'#6#7'1.6.2.0'#0#6'TLabel'#13'lbMoveNot'
+  +'eSub'#4'Left'#2#24#6'Height'#2#20#3'Top'#2#16#5'Width'#3' '#1#7'Caption'#6
+  +'.Link the current note to the selected subject.'#11'ParentColor'#8#0#0#7'TB'
+  +'utton'#10'bnMoveNote'#4'Left'#3'X'#1#6'Height'#2#31#3'Top'#3'a'#1#5'Width'#3
+  +#135#0#7'Anchors'#11#7'akRight'#8'akBottom'#0#7'Caption'#6#9'Move note'#7'On'
+  +'Click'#7#15'bnMoveNoteClick'#8'TabOrder'#2#1#0#0#7'TButton'#11'bnCloseNote'
+  +#4'Left'#3#218#0#6'Height'#2#31#3'Top'#3'a'#1#5'Width'#2'e'#7'Anchors'#11#7
+  +'akRight'#8'akBottom'#0#7'Caption'#6#6'Cancel'#7'OnClick'#7#16'bnCloseNoteCl'
+  +'ick'#8'TabOrder'#2#0#0#0#7'TDBGrid'#11'grMoveNotes'#4'Left'#2#24#6'Height'#3
+  +'('#1#3'Top'#2'('#5'Width'#3#199#1#7'Anchors'#11#5'akTop'#6'akLeft'#7'akRigh'
+  +'t'#8'akBottom'#0#7'Columns'#14#1#7'MinSize'#3#200#0#7'MaxSize'#3#244#1#13'T'
+  +'itle.Caption'#6#12'SubjectsName'#9'FieldName'#6#12'SubjectsName'#0#0#10'Dat'
+  +'aSource'#7#14'dsMoveSubjects'#9'FixedCols'#2#0#7'Options'#11#14'dgColumnRes'
+  +'ize'#12'dgColumnMove'#10'dgColLines'#10'dgRowLines'#6'dgTabs'#11'dgRowSelec'
+  +'t'#21'dgAlwaysShowSelection'#15'dgConfirmDelete'#14'dgCancelOnExit'#0#11'Pa'
+  +'rentColor'#9#8'ReadOnly'#9#10'Scrollbars'#7#14'ssAutoVertical'#8'TabOrder'#2
+  +#2#0#0#15'TSqlite3Dataset'#14'sqMoveSubjects'#4'left'#2'h'#3'top'#2'p'#0#0#11
+  +'TDataSource'#14'dsMoveSubjects'#7'DataSet'#7#14'sqMoveSubjects'#4'left'#3
+  +#192#0#3'top'#3#144#0#0#0#0
+]);

@@ -1,0 +1,325 @@
+object fmOptions: TfmOptions
+  Left = 544
+  Height = 609
+  Top = 247
+  Width = 811
+  AlphaBlend = True
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Options'
+  ClientHeight = 609
+  ClientWidth = 811
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.6.2.0'
+  object bvFrame: TBevel
+    Left = 24
+    Height = 531
+    Top = 15
+    Width = 763
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Shape = bsFrame
+  end
+  object lbOptionsFont: TLabel
+    Left = 403
+    Height = 20
+    Top = 105
+    Width = 148
+    Caption = 'Default font of the text'
+    ParentColor = False
+  end
+  object lbOptionsSyncDir: TLabel
+    Left = 51
+    Height = 48
+    Top = 32
+    Width = 317
+    AutoSize = False
+    Caption = 'Sync folder'
+    ParentColor = False
+    WordWrap = True
+  end
+  object cbOptionsAutosync: TCheckBox
+    Left = 51
+    Height = 24
+    Top = 370
+    Width = 138
+    Caption = 'Activate autosync'
+    OnChange = cbOptionsAutosyncChange
+    TabOrder = 4
+  end
+  object lbOptionsFormColor: TLabel
+    Left = 403
+    Height = 20
+    Top = 32
+    Width = 76
+    Caption = 'Forms color'
+    ParentColor = False
+  end
+  object lbOptionsFormTrans: TLabel
+    Left = 51
+    Height = 20
+    Top = 166
+    Width = 126
+    Caption = 'Forms transparency'
+    ParentColor = False
+  end
+  object cbOptionsOpenLastFile: TCheckBox
+    Left = 51
+    Height = 24
+    Top = 330
+    Width = 165
+    Caption = 'Open last file on start'
+    OnChange = cbOptionsOpenLastFileChange
+    TabOrder = 3
+  end
+  object bnOptionsFont: TButton
+    Left = 403
+    Height = 31
+    Top = 131
+    Width = 179
+    Caption = 'Change font'
+    OnClick = bnOptionsFontClick
+    TabOrder = 10
+  end
+  object bnOptionsSyncDir: TButton
+    Left = 51
+    Height = 30
+    Top = 92
+    Width = 179
+    Caption = 'Change folder'
+    OnClick = bnOptionsSyncDirClick
+    TabOrder = 0
+  end
+  object bnOptionsFormColor: TButton
+    Left = 403
+    Height = 31
+    Top = 58
+    Width = 179
+    Caption = 'Change color'
+    OnClick = bnOptionsFormColorClick
+    TabOrder = 8
+  end
+  object tbOptionsFormTrans: TTrackBar
+    Left = 51
+    Height = 52
+    Top = 194
+    Width = 216
+    Max = 255
+    Min = 100
+    OnChange = tbOptionsFormTransChange
+    Position = 255
+    Reversed = True
+    ShowSelRange = False
+    TickStyle = tsNone
+    TabOrder = 1
+  end
+  object bnOptionsOK: TButton
+    Left = 686
+    Height = 31
+    Top = 563
+    Width = 101
+    Anchors = [akRight, akBottom]
+    Caption = 'OK'
+    OnClick = bnOptionsOKClick
+    TabOrder = 21
+  end
+  object cbOptionsActivateTray: TCheckBox
+    Left = 51
+    Height = 24
+    Top = 290
+    Width = 135
+    Caption = 'Activate tray icon'
+    OnChange = cbOptionsActivateTrayChange
+    TabOrder = 2
+  end
+  object lbOptionsColor: TLabel
+    Left = 403
+    Height = 20
+    Top = 198
+    Width = 213
+    Caption = 'Titles font and background colors'
+    ParentColor = False
+  end
+  object bnOptFont1: TButton
+    Left = 403
+    Height = 31
+    Top = 226
+    Width = 152
+    Caption = 'Font color 1'
+    OnClick = bnOptFont1Click
+    TabOrder = 11
+  end
+  object bnOptBack1: TButton
+    Left = 572
+    Height = 31
+    Top = 226
+    Width = 176
+    Caption = 'Background color 1'
+    OnClick = bnOptBack1Click
+    TabOrder = 12
+  end
+  object lbOptionDef1: TLabel
+    Left = 403
+    Height = 20
+    Top = 265
+    Width = 59
+    Caption = 'Default 1'
+    ParentColor = False
+  end
+  object lbOptionDef2: TLabel
+    Left = 403
+    Height = 20
+    Top = 339
+    Width = 59
+    Caption = 'Default 2'
+    ParentColor = False
+  end
+  object bnOptFont2: TButton
+    Left = 403
+    Height = 31
+    Top = 300
+    Width = 152
+    Caption = 'Font color 2'
+    OnClick = bnOptFont2Click
+    TabOrder = 13
+  end
+  object bnOptBack2: TButton
+    Left = 572
+    Height = 31
+    Top = 300
+    Width = 176
+    Caption = 'Background color 2'
+    OnClick = bnOptBack2Click
+    TabOrder = 14
+  end
+  object lbOptionDef3: TLabel
+    Left = 403
+    Height = 20
+    Top = 413
+    Width = 59
+    Caption = 'Default 3'
+    ParentColor = False
+  end
+  object bnOptFont3: TButton
+    Left = 403
+    Height = 31
+    Top = 374
+    Width = 152
+    Caption = 'Font color 3'
+    OnClick = bnOptFont3Click
+    TabOrder = 15
+  end
+  object bnOptBack3: TButton
+    Left = 572
+    Height = 31
+    Top = 374
+    Width = 176
+    Caption = 'Background color 3'
+    OnClick = bnOptBack3Click
+    TabOrder = 16
+  end
+  object cbOptionsNoMsg: TCheckBox
+    Left = 51
+    Height = 24
+    Top = 410
+    Width = 241
+    Caption = 'No sync message except on error'
+    OnChange = cbOptionsNoMsgChange
+    TabOrder = 5
+  end
+  object cbOptionsNoChar: TCheckBox
+    Left = 51
+    Height = 24
+    Top = 450
+    Width = 155
+    Caption = 'No characters count'
+    OnChange = cbOptionsNoCharChange
+    TabOrder = 6
+  end
+  object bnOptionsFormClDef: TButton
+    Left = 596
+    Height = 31
+    Top = 56
+    Width = 152
+    Caption = 'Default'
+    OnClick = bnOptionsFormClDefClick
+    TabOrder = 9
+  end
+  object cbOptionsNoAutosave: TCheckBox
+    Left = 51
+    Height = 24
+    Top = 490
+    Width = 134
+    Caption = 'Disable autosave'
+    OnChange = cbOptionsNoAutosaveChange
+    TabOrder = 7
+  end
+  object udOptParSpace: TUpDown
+    Left = 652
+    Height = 37
+    Top = 482
+    Width = 26
+    Associate = edOptParSpace
+    Min = 0
+    Position = 0
+    TabOrder = 20
+    TabStop = True
+    Thousands = False
+    Wrap = True
+  end
+  object edOptParSpace: TEdit
+    Left = 572
+    Height = 37
+    Top = 482
+    Width = 80
+    OnChange = edOptParSpaceChange
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 19
+    Text = '0'
+  end
+  object lbOptionsPar: TLabel
+    Left = 572
+    Height = 20
+    Top = 456
+    Width = 104
+    Caption = 'Paragraph space'
+    ParentColor = False
+  end
+  object lbOptionsLine: TLabel
+    Left = 403
+    Height = 20
+    Top = 456
+    Width = 67
+    Caption = 'Line space'
+    ParentColor = False
+  end
+  object edOptLineSpace: TEdit
+    Left = 403
+    Height = 37
+    Top = 482
+    Width = 80
+    OnChange = edOptLineSpaceChange
+    ReadOnly = True
+    TabStop = False
+    TabOrder = 17
+    Text = '0'
+  end
+  object udOptLineSpace: TUpDown
+    Left = 483
+    Height = 37
+    Top = 482
+    Width = 26
+    Associate = edOptLineSpace
+    Min = 0
+    Position = 0
+    TabOrder = 18
+    TabStop = True
+    Thousands = False
+    Wrap = True
+  end
+end

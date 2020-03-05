@@ -1,0 +1,78 @@
+object fmEncryption: TfmEncryption
+  Left = 548
+  Height = 247
+  Top = 436
+  Width = 400
+  ActiveControl = edPwd1
+  AlphaBlend = True
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Encrypt'
+  ClientHeight = 247
+  ClientWidth = 400
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  Position = poScreenCenter
+  ShowInTaskBar = stNever
+  LCLVersion = '1.6.2.0'
+  object lbEncrypt: TLabel
+    Left = 32
+    Height = 20
+    Top = 24
+    Width = 224
+    Caption = 'Insert password in the fields below'
+    ParentColor = False
+  end
+  object bnClose: TButton
+    Left = 112
+    Height = 31
+    Top = 192
+    Width = 101
+    Anchors = [akRight, akBottom]
+    Caption = 'Cancel'
+    OnClick = bnCloseClick
+    TabOrder = 3
+  end
+  object bnEncrypt: TButton
+    Left = 238
+    Height = 31
+    Top = 192
+    Width = 135
+    Anchors = [akRight, akBottom]
+    Caption = 'Encrypt'
+    OnClick = bnEncryptClick
+    TabOrder = 4
+  end
+  object edPwd1: TEdit
+    Left = 32
+    Height = 37
+    Top = 64
+    Width = 341
+    EchoMode = emPassword
+    OnKeyPress = edPwd1KeyPress
+    PasswordChar = '*'
+    TabOrder = 0
+  end
+  object edPwd2: TEdit
+    Left = 32
+    Height = 37
+    Top = 112
+    Width = 341
+    EchoMode = emPassword
+    OnKeyPress = edPwd2KeyPress
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object cbShowChar: TCheckBox
+    Left = 32
+    Height = 24
+    Top = 152
+    Width = 132
+    Caption = 'Show characters'
+    OnChange = cbShowCharChange
+    TabOrder = 2
+  end
+end

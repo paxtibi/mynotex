@@ -1,0 +1,138 @@
+object fmLook: TfmLook
+  Left = 698
+  Height = 326
+  Top = 398
+  Width = 473
+  AlphaBlend = True
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Look'
+  ClientHeight = 326
+  ClientWidth = 473
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  Position = poScreenCenter
+  ShowHint = True
+  ShowInTaskBar = stNever
+  LCLVersion = '1.6.2.0'
+  object lbColBack: TLabel
+    Left = 44
+    Height = 20
+    Top = 25
+    Width = 111
+    Caption = 'Background color'
+    ParentColor = False
+  end
+  object cbColBack: TColorBox
+    Left = 44
+    Height = 36
+    Top = 48
+    Width = 184
+    DefaultColorColor = clWhite
+    NoneColorColor = clWhite
+    Selected = clWhite
+    Style = [cbStandardColors, cbExtendedColors, cbCustomColor, cbPrettyNames, cbCustomColors]
+    ItemHeight = 0
+    TabOrder = 0
+  end
+  object bnColDef1: TButton
+    Left = 44
+    Height = 31
+    Top = 113
+    Width = 184
+    Caption = 'Default color 1'
+    OnClick = bnColDef1Click
+    TabOrder = 1
+  end
+  object cbColFont: TColorBox
+    Left = 244
+    Height = 36
+    Top = 48
+    Width = 184
+    Style = [cbStandardColors, cbExtendedColors, cbCustomColor, cbPrettyNames, cbCustomColors]
+    ItemHeight = 0
+    TabOrder = 2
+  end
+  object lbColFont: TLabel
+    Left = 244
+    Height = 20
+    Top = 25
+    Width = 65
+    Caption = 'Font color'
+    ParentColor = False
+  end
+  object bnColDef2: TButton
+    Left = 244
+    Height = 31
+    Top = 113
+    Width = 184
+    Caption = 'Default color 2'
+    OnClick = bnColDef2Click
+    TabOrder = 3
+  end
+  object bnColDef3: TButton
+    Left = 44
+    Height = 31
+    Top = 185
+    Width = 184
+    Caption = 'Default color 3'
+    OnClick = bnColDef3Click
+    TabOrder = 4
+  end
+  object bnNoCol: TButton
+    Left = 244
+    Height = 31
+    Top = 185
+    Width = 184
+    Caption = 'Remove color'
+    OnClick = bnNoColClick
+    TabOrder = 5
+  end
+  object bnColOK: TButton
+    Left = 327
+    Height = 31
+    Top = 274
+    Width = 101
+    Anchors = [akRight, akBottom]
+    Caption = 'OK'
+    OnClick = bnColOKClick
+    TabOrder = 7
+  end
+  object bnColCancel: TButton
+    Left = 201
+    Height = 31
+    Top = 274
+    Width = 101
+    Anchors = [akRight, akBottom]
+    Caption = 'Cancel'
+    OnClick = bnColCancelClick
+    TabOrder = 6
+  end
+  object lbColLorem1: TLabel
+    Left = 44
+    Height = 20
+    Top = 151
+    Width = 59
+    Caption = 'Default 1'
+    ParentColor = False
+  end
+  object lbColLorem2: TLabel
+    Left = 244
+    Height = 20
+    Top = 151
+    Width = 59
+    Caption = 'Default 2'
+    ParentColor = False
+  end
+  object lbColLorem3: TLabel
+    Left = 44
+    Height = 20
+    Top = 223
+    Width = 59
+    Caption = 'Default 3'
+    ParentColor = False
+  end
+end

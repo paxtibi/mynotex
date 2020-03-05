@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="10"/>
+    <General>
+      <MainUnit Value="0"/>
+      <Title Value="MyNotex"/>
+      <UseAppBundle Value="False"/>
+      <XPManifest>
+        <DpiAware Value="True"/>
+      </XPManifest>
+      <Icon Value="0"/>
+    </General>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <MajorVersionNr Value="1"/>
+      <MinorVersionNr Value="4"/>
+      <RevisionNr Value="1"/>
+      <StringTable Comments="MyNotex is free software." FileDescription="Free software to manage notes, documents and activities" LegalCopyright="Massimo Nardello 2010-2017." LegalTrademarks="Massimo Nardello 2010-2017." ProductName="MyNotex" ProductVersion=""/>
+    </VersionInfo>
+    <CustomData Count="13">
+      <Item0 Name="lazpackager/copyright" Value="2017 Massimo Nardello"/>
+      <Item1 Name="lazpackager/deb/ppa" Value="ppa:johndoe/use-your-own"/>
+      <Item2 Name="lazpackager/deb/series" Value="xerus"/>
+      <Item3 Name="lazpackager/deb/tpl_changelog" Value="mynotex (1.4.1.0) xerus; urgency=low
+
+  * Original version 1.4.1.0 packaged with lazdebian
+
+ -- Massimo Nardello &lt;ms.nardello@gmail.com>  Sun, 25 Jul 2017 11:00:00 +0200
+
+
+"/>
+      <Item4 Name="lazpackager/deb/tpl_control" Value="Source: mynotex
+Maintainer: Massimo Nardello &lt;ms.nardello@gmail.com>
+Section: Office
+Priority: optional
+Standards-Version: 1.4.1.0
+
+Package: mynotex
+Architecture: any
+Description: MyNotex
+  MyNotex is a free software for Gnu/Linux
+  useful to take and to manage textual notes,
+  possibly related with activities.
+"/>
+      <Item5 Name="lazpackager/deb/tpl_copyright" Value="Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: Massimo Nardello, Modena (Italy) 2010-2017.
+License: GPL-3+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 3 of the License, or
+ at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ /usr/share/common-licenses/GPL-3
+"/>
+      <Item6 Name="lazpackager/deb/tpl_rules" Value="#!/usr/bin/make -f
+
+ROOT = $(CURDIR)/debian/mynotex
+
+override_dh_auto_clean:
+	$(RM) -r lib
+	$(RM) lib *.res mynotex
+
+override_dh_auto_build:
+	lazbuild mynotex.lpi
+
+override_dh_shlibdeps:
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
+
+override_dh_auto_install:
+	install -d -m 755 $(ROOT)/opt/mynotex
+	install -s -m 755 mynotex $(ROOT)/opt/mynotex
+	install -m 755 *.pdf $(ROOT)/opt/mynotex
+	install -m 755 *.lng $(ROOT)/opt/mynotex
+	install -d -m 755 $(ROOT)/usr/share/pixmaps
+	install -m 755 mynotex.png $(ROOT)/usr/share/pixmaps
+	install -d -m 755 $(ROOT)/usr/share/applications
+	install -m 755 MyNotex.desktop $(ROOT)/usr/share/applications
+%:
+	dh $@
+"/>
+      <Item7 Name="lazpackager/description" Value="A free note and activity manager for GNU/Linux."/>
+      <Item8 Name="lazpackager/description_long" Value="MyNotex is a free software for Gnu/Linux 
+useful to take and to manage textual 
+notes with possible related activities. 
+"/>
+      <Item9 Name="lazpackager/export_cmd" Value="?CP? *.lpi ?TEMPFOLDER?/
+?CP? *.pas ?TEMPFOLDER?/
+?CP? *.lfm ?TEMPFOLDER?/
+?CP? *.ico ?TEMPFOLDER?/
+?CP? *.lrs ?TEMPFOLDER?/
+?CP? *.png ?TEMPFOLDER?/
+?CP? *.desktop ?TEMPFOLDER?/
+?CP? Manuals/*.pdf ?TEMPFOLDER?/
+?CP? Translations/*.lng ?TEMPFOLDER?/
+
+"/>
+      <Item10 Name="lazpackager/maintainer" Value="Massimo Nardello"/>
+      <Item11 Name="lazpackager/maintainer_email" Value="ms.nardello@gmail.com"/>
+      <Item12 Name="lazpackager/package_name" Value="mynotex"/>
+    </CustomData>
+    <BuildModes Count="1">
+      <Item1 Name="default" Default="True"/>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="289974054600" Modes="default" Value="-dHtml_Print"/>
+      </SharedMatrixOptions>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IgnoreBinaries Value="False"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|ppw|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="9">
+      <Item1>
+        <PackageName Value="RunTimeTypeInfoControls"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="Printer4Lazarus"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="TurboPowerIPro"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="dcpcrypt"/>
+        <MinVersion Major="2" Release="4" Build="1" Valid="True"/>
+      </Item4>
+      <Item5>
+        <PackageName Value="richmemopackage"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item5>
+      <Item6>
+        <PackageName Value="ZVDateTimeCtrls"/>
+        <MinVersion Major="1" Minor="2" Valid="True"/>
+      </Item6>
+      <Item7>
+        <PackageName Value="FCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item7>
+      <Item8>
+        <PackageName Value="sqlite3laz"/>
+        <MinVersion Minor="4" Valid="True"/>
+      </Item8>
+      <Item9>
+        <PackageName Value="LCL"/>
+      </Item9>
+    </RequiredPackages>
+    <Units Count="119">
+      <Unit0>
+        <Filename Value="mynotex.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="42"/>
+        <CursorPos X="27" Y="39"/>
+        <UsageCount Value="200"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="6452"/>
+        <CursorPos X="5" Y="6452"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="4">
+          <Item0 Y="4615" ID="7"/>
+          <Item1 X="37" Y="7389" ID="3"/>
+          <Item2 Y="10796" ID="2"/>
+          <Item3 X="22" Y="3535" ID="1"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="/usr/lib/lazarus/0.9.28.2/lcl/include/messagedialogs.inc"/>
+        <TopLine Value="293"/>
+        <CursorPos X="26" Y="311"/>
+        <UsageCount Value="5"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="/usr/lib/lazarus/0.9.28.2/lcl/include/lclintf.inc"/>
+        <TopLine Value="439"/>
+        <CursorPos X="43" Y="452"/>
+        <UsageCount Value="5"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="unit1.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="148"/>
+        <CursorPos X="35" Y="158"/>
+        <UsageCount Value="5"/>
+        <Bookmarks Count="1">
+          <Item0 Y="1273" ID="1"/>
+        </Bookmarks>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="unit2.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmImpExp"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit2"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="370"/>
+        <CursorPos X="69" Y="641"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="1">
+          <Item0 X="35" Y="644" ID="5"/>
+        </Bookmarks>
+      </Unit5>
+      <Unit6>
+        <Filename Value="/usr/lib/lazarus/0.9.28.2/lcl/lclproc.pas"/>
+        <TopLine Value="3449"/>
+        <CursorPos Y="3462"/>
+        <UsageCount Value="5"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../../Documents/test/unit1.pas"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <CursorPos Y="116"/>
+        <UsageCount Value="8"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="unitcopyright.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmCopyright"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitCopyright"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="47" Y="6"/>
+        <UsageCount Value="200"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="unit3.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmMoveNote"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit3"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="4"/>
+        <UsageCount Value="200"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="unit4.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmCommentsSubjects"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit4"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="14" Y="7"/>
+        <UsageCount Value="200"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="unit5.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmEncryption"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit5"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="4"/>
+        <UsageCount Value="201"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="/usr/lib/lazarus/0.9.28.2/lcl/dialogs.pp"/>
+        <TopLine Value="502"/>
+        <CursorPos X="10" Y="515"/>
+        <UsageCount Value="5"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="/usr/lib/lazarus/0.9.28.2/lcl/include/lclintfh.inc"/>
+        <TopLine Value="113"/>
+        <CursorPos X="10" Y="126"/>
+        <UsageCount Value="5"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="/usr/lib/lazarus/0.9.30/components/richmemo/richmemo.pas"/>
+        <TopLine Value="54"/>
+        <CursorPos X="32" Y="66"/>
+        <UsageCount Value="9"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="/usr/lib/lazarus/0.9.30/components/richmemo/wsrichmemo.pas"/>
+        <TopLine Value="156"/>
+        <CursorPos X="3" Y="169"/>
+        <UsageCount Value="2"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="/usr/lib/lazarus/0.9.30/components/richmemo/gtk2/gtk2richmemo.pas"/>
+        <TopLine Value="442"/>
+        <CursorPos X="16" Y="452"/>
+        <UsageCount Value="8"/>
+        <Bookmarks Count="1">
+          <Item0 X="22" Y="301" ID="2"/>
+        </Bookmarks>
+      </Unit16>
+      <Unit17>
+        <Filename Value="/usr/share/fpcsrc/2.4.4/packages/gtk2/src/pango/pango-types.inc"/>
+        <TopLine Value="35"/>
+        <CursorPos X="29" Y="35"/>
+        <UsageCount Value="8"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="/usr/share/fpcsrc/2.4.4/packages/gtk2/src/gtk+/gtk/gtktexttag.inc"/>
+        <TopLine Value="90"/>
+        <CursorPos X="33" Y="103"/>
+        <UsageCount Value="8"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/controls.pp"/>
+        <TopLine Value="1686"/>
+        <CursorPos X="16" Y="1692"/>
+        <UsageCount Value="5"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/include/menuitem.inc"/>
+        <TopLine Value="64"/>
+        <CursorPos X="26" Y="70"/>
+        <UsageCount Value="9"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/lclmessageglue.pas"/>
+        <TopLine Value="103"/>
+        <CursorPos Y="121"/>
+        <UsageCount Value="9"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/interfaces/gtk2/gtk2proc.inc"/>
+        <TopLine Value="3516"/>
+        <CursorPos Y="3531"/>
+        <UsageCount Value="9"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/interfaces/gtk2/gtk2wsmenus.pp"/>
+        <TopLine Value="126"/>
+        <CursorPos Y="141"/>
+        <UsageCount Value="9"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
+        <TopLine Value="2455"/>
+        <CursorPos X="19" Y="2461"/>
+        <UsageCount Value="9"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/dbgrids.pas"/>
+        <TopLine Value="28"/>
+        <CursorPos X="35" Y="43"/>
+        <UsageCount Value="9"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="/usr/share/fpcsrc/2.4.4/packages/gtk2/src/gtk+/gdk/gdkcolor.inc"/>
+        <TopLine Value="28"/>
+        <CursorPos X="16" Y="6"/>
+        <UsageCount Value="9"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/interfaces/gtk2/gtk2proc.pp"/>
+        <TopLine Value="374"/>
+        <CursorPos X="20" Y="380"/>
+        <UsageCount Value="9"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/dialogs.pp"/>
+        <TopLine Value="495"/>
+        <CursorPos X="11" Y="508"/>
+        <UsageCount Value="9"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="/usr/share/fpcsrc/2.4.4/packages/gtk2/src/gtk+/gtk/gtk2.pas"/>
+        <CursorPos X="7" Y="101"/>
+        <UsageCount Value="9"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/include/wincontrol.inc"/>
+        <TopLine Value="5961"/>
+        <CursorPos X="16" Y="5975"/>
+        <UsageCount Value="5"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="unit6.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmResizeImage"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit6"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="4"/>
+        <UsageCount Value="201"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="/usr/lib/lazarus/0.9.30/lcl/include/picture.inc"/>
+        <TopLine Value="728"/>
+        <CursorPos X="14" Y="739"/>
+        <UsageCount Value="5"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="/usr/lib/lazarus/0.9.30.2/components/richmemo/gtk2/gtk2richmemo.pas"/>
+        <TopLine Value="42"/>
+        <CursorPos X="9" Y="20"/>
+        <UsageCount Value="8"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="/usr/lib/lazarus/0.9.30.2/components/richmemo/richmemo.pas"/>
+        <TopLine Value="81"/>
+        <CursorPos X="14" Y="81"/>
+        <UsageCount Value="8"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="/usr/share/lazarus/1.0/components/richmemo/richmemo.pas"/>
+        <TopLine Value="397"/>
+        <CursorPos X="3" Y="399"/>
+        <UsageCount Value="9"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="/usr/share/lazarus/1.0/components/richmemo/wsrichmemo.pas"/>
+        <TopLine Value="179"/>
+        <CursorPos X="3" Y="182"/>
+        <UsageCount Value="9"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="/usr/share/fpcsrc/2.6.0/rtl/objpas/sysutils/sysstrh.inc"/>
+        <TopLine Value="199"/>
+        <CursorPos X="10" Y="210"/>
+        <UsageCount Value="8"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="/usr/share/lazarus/1.0.8/components/richmemo/gtk2/gtk2richmemo.pas"/>
+        <TopLine Value="136"/>
+        <CursorPos X="21" Y="145"/>
+        <UsageCount Value="3"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="unit7.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmOptions"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit7"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="200"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/include/customform.inc"/>
+        <TopLine Value="441"/>
+        <CursorPos X="32" Y="452"/>
+        <UsageCount Value="7"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/graphics.pp"/>
+        <TopLine Value="315"/>
+        <CursorPos X="3" Y="328"/>
+        <UsageCount Value="1"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="/usr/share/lazarus/1.2.2/components/richmemo/wsrichmemo.pas"/>
+        <TopLine Value="202"/>
+        <CursorPos Y="229"/>
+        <UsageCount Value="4"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/objpas/sysutils/datih.inc"/>
+        <TopLine Value="144"/>
+        <CursorPos X="10" Y="157"/>
+        <UsageCount Value="2"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/objpas/sysutils/dati.inc"/>
+        <TopLine Value="1213"/>
+        <CursorPos X="10" Y="1193"/>
+        <UsageCount Value="2"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/fcl-db/src/base/db.pas"/>
+        <TopLine Value="1578"/>
+        <CursorPos X="15" Y="1587"/>
+        <UsageCount Value="10"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/fcl-db/src/base/dataset.inc"/>
+        <TopLine Value="1567"/>
+        <CursorPos X="3" Y="1571"/>
+        <UsageCount Value="10"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="/usr/share/lazarus/1.2.2/components/richmemo/richmemo.pas"/>
+        <TopLine Value="446"/>
+        <CursorPos X="56" Y="461"/>
+        <UsageCount Value="4"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="/usr/share/lazarus/1.2.2/components/richmemo/gtk2/gtk2richmemo.pas"/>
+        <TopLine Value="929"/>
+        <CursorPos X="55" Y="938"/>
+        <UsageCount Value="7"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gdk-pixbuf/gdk2pixbuf.pas"/>
+        <TopLine Value="166"/>
+        <CursorPos X="27" Y="179"/>
+        <UsageCount Value="9"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/dynamicarray.pas"/>
+        <TopLine Value="50"/>
+        <CursorPos X="17" Y="55"/>
+        <UsageCount Value="10"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/forms.pp"/>
+        <TopLine Value="369"/>
+        <CursorPos X="17" Y="380"/>
+        <UsageCount Value="1"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/include/control.inc"/>
+        <TopLine Value="4764"/>
+        <CursorPos X="3" Y="4770"/>
+        <UsageCount Value="1"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/include/application.inc"/>
+        <TopLine Value="361"/>
+        <CursorPos Y="375"/>
+        <UsageCount Value="1"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/interfaces/gtk2/gtk2widgetset.inc"/>
+        <TopLine Value="2379"/>
+        <CursorPos Y="2391"/>
+        <UsageCount Value="1"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="/usr/share/lazarus/1.2.2/components/lazutils/fileutil.pas"/>
+        <TopLine Value="189"/>
+        <CursorPos X="44" Y="201"/>
+        <UsageCount Value="1"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/fcl-image/src/fpcanvas.pp"/>
+        <TopLine Value="318"/>
+        <CursorPos X="15" Y="327"/>
+        <UsageCount Value="1"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/fcl-image/src/fpcanvas.inc"/>
+        <TopLine Value="667"/>
+        <CursorPos X="3" Y="649"/>
+        <UsageCount Value="1"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/unix/sysunixh.inc"/>
+        <TopLine Value="17"/>
+        <CursorPos X="2" Y="28"/>
+        <UsageCount Value="1"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="/usr/share/lazarus/1.2.2/lcl/widgetset/wsstdctrls.pp"/>
+        <TopLine Value="13"/>
+        <UsageCount Value="1"/>
+      </Unit59>
+      <Unit60>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gtk/gtktextbuffer.inc"/>
+        <TopLine Value="73"/>
+        <CursorPos X="10" Y="81"/>
+        <UsageCount Value="3"/>
+      </Unit60>
+      <Unit61>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/objpas/types.pp"/>
+        <TopLine Value="87"/>
+        <CursorPos X="3" Y="100"/>
+        <UsageCount Value="1"/>
+      </Unit61>
+      <Unit62>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gtk/gtktextview.inc"/>
+        <TopLine Value="250"/>
+        <CursorPos X="35" Y="264"/>
+        <UsageCount Value="3"/>
+      </Unit62>
+      <Unit63>
+        <Filename Value="/usr/lib64/lazarus/lcl/graphics.pp"/>
+        <TopLine Value="1941"/>
+        <CursorPos X="10" Y="1953"/>
+        <UsageCount Value="5"/>
+      </Unit63>
+      <Unit64>
+        <Filename Value="/usr/lib64/lazarus/lcl/grids.pas"/>
+        <TopLine Value="4856"/>
+        <CursorPos X="21" Y="4871"/>
+        <UsageCount Value="9"/>
+      </Unit64>
+      <Unit65>
+        <Filename Value="/usr/lib64/lazarus/lcl/dbgrids.pas"/>
+        <TopLine Value="1959"/>
+        <CursorPos X="49" Y="1962"/>
+        <UsageCount Value="3"/>
+      </Unit65>
+      <Unit66>
+        <Filename Value="unit8.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmLook"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit8"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="11"/>
+        <UsageCount Value="200"/>
+      </Unit66>
+      <Unit67>
+        <Filename Value="/usr/lib64/lazarus/components/printers/printersdlgs.pp"/>
+        <TopLine Value="31"/>
+        <CursorPos X="22" Y="42"/>
+        <UsageCount Value="8"/>
+      </Unit67>
+      <Unit68>
+        <Filename Value="/usr/lib64/lazarus/lcl/dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="495"/>
+        <CursorPos X="24" Y="514"/>
+        <UsageCount Value="6"/>
+      </Unit68>
+      <Unit69>
+        <Filename Value="/usr/lib64/lazarus/lcl/stdctrls.pp"/>
+        <TopLine Value="736"/>
+        <CursorPos X="15" Y="749"/>
+        <UsageCount Value="9"/>
+      </Unit69>
+      <Unit70>
+        <Filename Value="/usr/lib64/lazarus/components/richmemo/richmemo.pas"/>
+        <UnitName Value="RichMemo"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="403"/>
+        <CursorPos X="3" Y="407"/>
+        <UsageCount Value="6"/>
+      </Unit70>
+      <Unit71>
+        <Filename Value="unit9.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmCalendar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit9"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="5"/>
+        <UsageCount Value="208"/>
+      </Unit71>
+      <Unit72>
+        <Filename Value="/usr/lib64/lazarus/lcl/calendar.pp"/>
+        <UsageCount Value="7"/>
+      </Unit72>
+      <Unit73>
+        <Filename Value="/usr/lib64/lazarus/lcl/lclintf.pas"/>
+        <UnitName Value="LCLIntf"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="77"/>
+        <CursorPos X="3" Y="90"/>
+        <UsageCount Value="5"/>
+      </Unit73>
+      <Unit74>
+        <Filename Value="/usr/lib64/lazarus/components/richmemo/wsrichmemo.pas"/>
+        <UnitName Value="WSRichMemo"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="160"/>
+        <CursorPos X="34" Y="172"/>
+        <UsageCount Value="6"/>
+      </Unit74>
+      <Unit75>
+        <Filename Value="/usr/lib64/lazarus/components/richmemo/gtk2/gtk2richmemo.pas"/>
+        <UnitName Value="Gtk2RichMemo"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1028"/>
+        <CursorPos X="27" Y="1036"/>
+        <UsageCount Value="8"/>
+      </Unit75>
+      <Unit76>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/pango/pango.pas"/>
+        <TopLine Value="91"/>
+        <UsageCount Value="9"/>
+      </Unit76>
+      <Unit77>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gtk/gtk2.pas"/>
+        <UsageCount Value="9"/>
+      </Unit77>
+      <Unit78>
+        <Filename Value="/usr/lib64/lazarus/lcl/interfaces/gtk2/gtk2wscontrols.pp"/>
+        <TopLine Value="277"/>
+        <CursorPos X="29" Y="219"/>
+        <UsageCount Value="9"/>
+      </Unit78>
+      <Unit79>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gtk/gtkscrolledwindow.inc"/>
+        <TopLine Value="52"/>
+        <CursorPos X="10" Y="83"/>
+        <UsageCount Value="9"/>
+      </Unit79>
+      <Unit80>
+        <Filename Value="/usr/lib64/lazarus/lcl/interfaces/gtk2/gtk2proc.pp"/>
+        <TopLine Value="31"/>
+        <UsageCount Value="9"/>
+      </Unit80>
+      <Unit81>
+        <Filename Value="/usr/lib64/lazarus/lcl/interfaces/gtk2/gtk2globals.pp"/>
+        <TopLine Value="121"/>
+        <UsageCount Value="9"/>
+      </Unit81>
+      <Unit82>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/glib/gtypes.inc"/>
+        <TopLine Value="9"/>
+        <CursorPos X="41" Y="22"/>
+        <UsageCount Value="9"/>
+      </Unit82>
+      <Unit83>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gtk/gtkclipboard.inc"/>
+        <TopLine Value="46"/>
+        <CursorPos X="11" Y="61"/>
+        <UsageCount Value="9"/>
+      </Unit83>
+      <Unit84>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/packages/gtk2/src/gtk+/gdk/gdktypes.inc"/>
+        <TopLine Value="33"/>
+        <CursorPos X="4" Y="46"/>
+        <UsageCount Value="9"/>
+      </Unit84>
+      <Unit85>
+        <Filename Value="/usr/lib64/lazarus/lcl/controls.pp"/>
+        <TopLine Value="1512"/>
+        <CursorPos X="15" Y="1525"/>
+        <UsageCount Value="9"/>
+      </Unit85>
+      <Unit86>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/control.inc"/>
+        <TopLine Value="4690"/>
+        <CursorPos X="3" Y="4704"/>
+        <UsageCount Value="9"/>
+      </Unit86>
+      <Unit87>
+        <Filename Value="/usr/lib64/lazarus/lcl/clipbrd.pp"/>
+        <TopLine Value="247"/>
+        <CursorPos X="10" Y="260"/>
+        <UsageCount Value="9"/>
+      </Unit87>
+      <Unit88>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/customlistbox.inc"/>
+        <TopLine Value="184"/>
+        <CursorPos X="37" Y="195"/>
+        <UsageCount Value="10"/>
+      </Unit88>
+      <Unit89>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/objpas/sysutils/sysinth.inc"/>
+        <TopLine Value="104"/>
+        <CursorPos X="4" Y="90"/>
+        <UsageCount Value="1"/>
+      </Unit89>
+      <Unit90>
+        <Filename Value="/usr/share/lazarus/1.4.0/components/turbopower_ipro/iphtml.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="58"/>
+        <CursorPos X="34" Y="70"/>
+        <UsageCount Value="3"/>
+      </Unit90>
+      <Unit91>
+        <Filename Value="/usr/share/lazarus/1.4.0/components/printers/osprinters.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="2"/>
+      </Unit91>
+      <Unit92>
+        <Filename Value="/usr/share/lazarus/1.4.0/lcl/printers.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <UsageCount Value="2"/>
+      </Unit92>
+      <Unit93>
+        <Filename Value="/usr/share/lazarus/1.4.0/lcl/include/customlistbox.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="184"/>
+        <CursorPos X="37" Y="193"/>
+        <UsageCount Value="3"/>
+      </Unit93>
+      <Unit94>
+        <Filename Value="/usr/share/lazarus/1.4.0/lcl/grids.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="9130"/>
+        <CursorPos X="34" Y="9140"/>
+        <UsageCount Value="3"/>
+      </Unit94>
+      <Unit95>
+        <Filename Value="/usr/share/fpcsrc/2.6.4/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="691"/>
+        <CursorPos X="3" Y="703"/>
+        <UsageCount Value="3"/>
+      </Unit95>
+      <Unit96>
+        <Filename Value="/usr/share/lazarus/1.4.4/lcl/lclproc.pas"/>
+        <UnitName Value="LCLProc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="340"/>
+        <CursorPos X="10" Y="351"/>
+        <UsageCount Value="3"/>
+      </Unit96>
+      <Unit97>
+        <Filename Value="/usr/share/fpcsrc/rtl/objpas/sysutils/datih.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="129"/>
+        <CursorPos X="10" Y="141"/>
+        <UsageCount Value="6"/>
+      </Unit97>
+      <Unit98>
+        <Filename Value="/usr/share/fpcsrc/rtl/objpas/sysutils/dati.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="590"/>
+        <CursorPos X="5" Y="541"/>
+        <UsageCount Value="3"/>
+      </Unit98>
+      <Unit99>
+        <Filename Value="/usr/share/fpcsrc/packages/gtk2/src/gtk+/gtk/gtktextbuffer.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="152"/>
+        <CursorPos X="87" Y="165"/>
+        <UsageCount Value="4"/>
+      </Unit99>
+      <Unit100>
+        <Filename Value="/usr/share/fpcsrc/rtl/objpas/sysutils/sysinth.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="32"/>
+        <CursorPos X="3" Y="33"/>
+        <UsageCount Value="6"/>
+      </Unit100>
+      <Unit101>
+        <Filename Value="/usr/share/fpcsrc/rtl/objpas/sysutils/sysutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="204"/>
+        <CursorPos X="9" Y="220"/>
+        <UsageCount Value="5"/>
+      </Unit101>
+      <Unit102>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/promptdialog.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="633"/>
+        <CursorPos X="3" Y="657"/>
+        <UsageCount Value="5"/>
+      </Unit102>
+      <Unit103>
+        <Filename Value="unit10.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmSetAlarm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit10"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="4"/>
+        <UsageCount Value="105"/>
+      </Unit103>
+      <Unit104>
+        <Filename Value="unit11.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="fmShowAlarm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit11"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="68" Y="4"/>
+        <UsageCount Value="103"/>
+      </Unit104>
+      <Unit105>
+        <Filename Value="/usr/share/fpcsrc/rtl/objpas/dateutil.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="281"/>
+        <CursorPos X="10" Y="293"/>
+        <UsageCount Value="5"/>
+      </Unit105>
+      <Unit106>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1818"/>
+        <CursorPos X="23" Y="1832"/>
+        <UsageCount Value="5"/>
+      </Unit106>
+      <Unit107>
+        <Filename Value="/usr/lib64/lazarus/components/lazutils/ttgload.pas"/>
+        <UnitName Value="TTGLoad"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="112"/>
+        <CursorPos X="77" Y="125"/>
+        <UsageCount Value="5"/>
+      </Unit107>
+      <Unit108>
+        <Filename Value="/usr/lib64/lazarus/components/dcprypt-2.0.4.1/dcpcrypt2.pas"/>
+        <UnitName Value="DCPcrypt2"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="48"/>
+        <CursorPos X="23" Y="61"/>
+        <UsageCount Value="5"/>
+      </Unit108>
+      <Unit109>
+        <Filename Value="/usr/lib64/lazarus/components/turbopower_ipro/iphtml.pas"/>
+        <UnitName Value="IpHtml"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="11901"/>
+        <CursorPos X="6" Y="11914"/>
+        <UsageCount Value="5"/>
+      </Unit109>
+      <Unit110>
+        <Filename Value="/usr/lib64/lazarus/lcl/include/sysenvapis_unix.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3"/>
+        <CursorPos X="3" Y="8"/>
+        <UsageCount Value="5"/>
+      </Unit110>
+      <Unit111>
+        <Filename Value="/usr/share/fpcsrc/rtl/objpas/sysutils/osutilsh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="21"/>
+        <CursorPos X="10" Y="34"/>
+        <UsageCount Value="5"/>
+      </Unit111>
+      <Unit112>
+        <Filename Value="/usr/share/fpcsrc/packages/fcl-process/src/process.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="122"/>
+        <CursorPos X="15" Y="132"/>
+        <UsageCount Value="5"/>
+      </Unit112>
+      <Unit113>
+        <Filename Value="/usr/lib/lazarus/1.6.2/components/lazutils/fileutil.pas"/>
+        <UnitName Value="FileUtil"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="260"/>
+        <CursorPos X="21" Y="268"/>
+        <UsageCount Value="6"/>
+      </Unit113>
+      <Unit114>
+        <Filename Value="/usr/lib/lazarus/1.6.2/components/lazutils/lazutf8.pas"/>
+        <UnitName Value="LazUTF8"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2256"/>
+        <CursorPos X="3" Y="2267"/>
+        <UsageCount Value="7"/>
+      </Unit114>
+      <Unit115>
+        <Filename Value="/usr/lib/lazarus/1.6.2/components/turbopower_ipro/iphtml.pas"/>
+        <UnitName Value="IpHtml"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2565"/>
+        <CursorPos X="21" Y="2572"/>
+        <UsageCount Value="9"/>
+      </Unit115>
+      <Unit116>
+        <Filename Value="/usr/lib/lazarus/1.6.2/ide/lazarus.pp"/>
+        <UnitName Value="Lazarus"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="45" Y="7"/>
+        <UsageCount Value="9"/>
+      </Unit116>
+      <Unit117>
+        <Filename Value="/usr/lib/lazarus/1.6.2/components/printers/osprinters.pas"/>
+        <UnitName Value="OSPrinters"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="13"/>
+        <UsageCount Value="9"/>
+      </Unit117>
+      <Unit118>
+        <Filename Value="/usr/lib/lazarus/1.6.2/lcl/printers.pas"/>
+        <UnitName Value="Printers"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="171"/>
+        <CursorPos X="3" Y="313"/>
+        <UsageCount Value="10"/>
+      </Unit118>
+    </Units>
+    <JumpHistory Count="29" HistoryIndex="28">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="43" Column="21" TopLine="30"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="903" TopLine="894"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="1025" TopLine="1024"/>
+      </Position3>
+      <Position4>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="10322" Column="5" TopLine="10302"/>
+      </Position4>
+      <Position5>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6449" Column="20" TopLine="6446"/>
+      </Position5>
+      <Position6>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6449" Column="20" TopLine="6446"/>
+      </Position6>
+      <Position7>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6450" Column="25" TopLine="6445"/>
+      </Position7>
+      <Position8>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6452" Column="31" TopLine="6445"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6456" Column="28" TopLine="6445"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6452" Column="37" TopLine="6445"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="42" Column="26" TopLine="31"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6451" Column="22" TopLine="6445"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="42" Column="43" TopLine="31"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6451" TopLine="6442"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6455" TopLine="6445"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="42" Column="31" TopLine="31"/>
+      </Position16>
+      <Position17>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6196" Column="14" TopLine="6185"/>
+      </Position17>
+      <Position18>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="42" Column="21" TopLine="35"/>
+      </Position18>
+      <Position19>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6452" Column="15" TopLine="6446"/>
+      </Position19>
+      <Position20>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6454" Column="23" TopLine="6447"/>
+      </Position20>
+      <Position21>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="6476" Column="18" TopLine="6471"/>
+      </Position21>
+      <Position22>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="3534" Column="22" TopLine="3527"/>
+      </Position22>
+      <Position23>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="11436" Column="52" TopLine="11420"/>
+      </Position23>
+      <Position24>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="11908" Column="11" TopLine="11892"/>
+      </Position24>
+      <Position25>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="3536" Column="22" TopLine="3525"/>
+      </Position25>
+      <Position26>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="11497" Column="52" TopLine="11481"/>
+      </Position26>
+      <Position27>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="11969" Column="11" TopLine="11953"/>
+      </Position27>
+      <Position28>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="3533" Column="25" TopLine="3526"/>
+      </Position28>
+      <Position29>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="4482" Column="23" TopLine="4476"/>
+      </Position29>
+    </JumpHistory>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <UseAnsiStrings Value="False"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="4">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+      <Item4>
+        <Name Value="EInterfaceCritical"/>
+      </Item4>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

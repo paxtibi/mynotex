@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=MyNotex
+Comment=Take and manage textual notes
+Exec=env LIBOVERLAY_SCROLLBAR=0 /opt/mynotex/mynotex %U
+Terminal=false
+Type=Application
+Icon=mynotex
+Categories=Office;
+Name[en]=MyNotex
+GenericName=MyNotex
+X-Ayatana-Desktop-Shortcuts=New
+[New Shortcut Group]
+Name=Open last database
+Name[en]=Open last database
+Name[de]=Letzte Datei öffnen
+Name[fr]=Ouvrir le dernier fichier
+Name[it]=Apri l'ultimo file
+Exec=env LIBOVERLAY_SCROLLBAR=0 /opt/mynotex/mynotex -l %U
+TargetEnvironment=Unity
