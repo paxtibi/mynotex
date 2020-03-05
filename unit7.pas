@@ -239,9 +239,9 @@ begin
       lbOptionsSyncDir.Caption := fmMain.cpt046 + ' ' + SyncFolder;
       if fmMain.sqSubjects.Active = True then
       begin
-        if ((FileExistsUTF8(SyncFolder + DirectorySeparator +
-          ExtractFileName(sqNotes.FileName))) and
-          (SyncFolder <> ExtractFileDir(sqNotes.FileName))) then
+        if ((FileExistsUTF8(SyncFolder + DirectorySeparator + ExtractFileName(sqNotes.FileName))) and (SyncFolder <> ExtractFileDir(sqNotes.FileName))) then
+
+
         begin
           miToolsSyncDo.Enabled := True;
           tbToolsSyncDo.Enabled := True;

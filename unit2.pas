@@ -111,8 +111,7 @@ end;
 
 procedure TfmImpExp.ImportExport(Sender: TObject);
 var
-  i, n, IDPos, FnSize, HTMLFnSize, NumList, IniIndent, EndIndent,
-  SpIndent, PosName: integer;
+  i, n, IDPos, FnSize, HTMLFnSize, NumList, IniIndent, EndIndent, SpIndent, PosName: integer;
   SubNotesText, SubActText, AttReadDir, AttWriteDir, stSpcInd: string;
   myFile: TextFile;
   myStringList: TStringList;
@@ -145,13 +144,11 @@ begin
           // Check if subject is already present
           sqWriteSubjects.Active := False;
           sqWriteSubjects.SQL :=
-            'Select * from Subjects where SubjectsUID = "' +
-            sqReadSubjects.FieldByName('SubjectsUID').AsString + '"';
+            'Select * from Subjects where SubjectsUID = "' + sqReadSubjects.FieldByName('SubjectsUID').AsString + '"';
           sqWriteSubjects.Active := True;
           if sqWriteSubjects.RecordCount > 0 then
           begin
-            MessageDlg(sqReadSubjects.FieldByName('SubjectsName').AsString +
-              ' ' + fmMain.msg036, mtInformation, [mbOK], 0);
+            MessageDlg(sqReadSubjects.FieldByName('SubjectsName').AsString + ' ' + fmMain.msg036, mtInformation, [mbOK], 0);
           end
           else
           begin
@@ -179,8 +176,7 @@ begin
             with sqWriteDelRec do
             begin
               Open;
-              if Locate('DelRecUID', sqReadSubjects.FieldByName(
-                'SubjectsUID').AsString, []) = True then
+              if Locate('DelRecUID', sqReadSubjects.FieldByName('SubjectsUID').AsString, []) = True then
               begin
                 Delete;
                 ApplyUpdates;
@@ -193,14 +189,10 @@ begin
             // Add notes
             if fmMain.miOrderByTitle.Checked = True then
               sqReadNotes.SQL :=
-                'Select * from Notes where ID_Subjects = ' +
-                sqReadSubjects.FieldByName('IDSubjects').AsString +
-                ' order by NotesTitle, IDNotes'
+                'Select * from Notes where ID_Subjects = ' + sqReadSubjects.FieldByName('IDSubjects').AsString + ' order by NotesTitle, IDNotes'
             else
               sqReadNotes.SQL :=
-                'Select * from Notes where ID_Subjects = ' +
-                sqReadSubjects.FieldByName('IDSubjects').AsString +
-                ' order by NotesDate, IDNotes';
+                'Select * from Notes where ID_Subjects = ' + sqReadSubjects.FieldByName('IDSubjects').AsString + ' order by NotesDate, IDNotes';
             sqReadNotes.Open;
             while not sqReadNotes.EOF do
             begin
@@ -241,8 +233,7 @@ begin
               with sqWriteDelRec do
               begin
                 Open;
-                if Locate('DelRecUID', sqReadNotes.FieldByName(
-                  'NotesUID').AsString, []) = True then
+                if Locate('DelRecUID', sqReadNotes.FieldByName('NotesUID').AsString, []) = True then
                 begin
                   Delete;
                   ApplyUpdates;
@@ -270,19 +261,13 @@ begin
                 myStringList := TStringList.Create;
                 myStringList.Text := sqReadNotes.FieldByName('NotesAttName').AsString;
                 for n := 0 to myStringList.Count - 1 do
-                  CopyFile(AttReadDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-' + ExtractFileNameOnly(myStringList[n]) + '.zip',
-                    AttWriteDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-' + ExtractFileNameOnly(myStringList[n]) + '.zip');
+                  CopyFile(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-' + ExtractFileNameOnly(myStringList[n]) + '.zip',
+                    AttWriteDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-' + ExtractFileNameOnly(myStringList[n]) + '.zip');
                 myStringList.Free;
               end;
               // Copy pictures
               AttReadDir := ExtractFileNameWithoutExt(sqReadSubjects.FileName);
-              if FileExistsUTF8(AttReadDir + DirectorySeparator +
-                sqReadNotes.FieldByName('NotesUID').AsString +
-                '-img0000.jpeg') then
+              if FileExistsUTF8(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img0000.jpeg') then
               begin
                 AttWriteDir := ExtractFileNameWithoutExt(sqWriteSubjects.FileName);
                 if DirectoryExistsUTF8(AttWriteDir) = False then
@@ -294,16 +279,10 @@ begin
                     Abort;
                   end;
                 n := 0;
-                while FileExistsUTF8(AttReadDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-img' + FormatFloat('0000', n) + '.jpeg') do
+                while FileExistsUTF8(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg') do
                 begin
-                  CopyFile(AttReadDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-img' + FormatFloat('0000', n) + '.jpeg',
-                    AttWriteDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-img' + FormatFloat('0000', n) + '.jpeg');
+                  CopyFile(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg',
+                    AttWriteDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg');
                   Inc(n);
                 end;
               end;
@@ -328,8 +307,7 @@ begin
           begin
             // Delete notes
             sqReadNotes.SQL :=
-              'Select * from Notes where ID_Subjects = ' +
-              sqReadSubjects.FieldByName('IDSubjects').AsString;
+              'Select * from Notes where ID_Subjects = ' + sqReadSubjects.FieldByName('IDSubjects').AsString;
             sqReadNotes.Open;
             while not sqReadNotes.EOF do
             begin
@@ -345,9 +323,7 @@ begin
                   myStringList := TStringList.Create;
                   myStringList.Text := sqReadNotes.FieldByName('NotesAttName').AsString;
                   for n := 0 to myStringList.Count - 1 do
-                    DeleteFileUTF8(AttReadDir + DirectorySeparator +
-                      sqReadNotes.FieldByName('NotesUID').AsString +
-                      '-' + ExtractFileNameOnly(myStringList[n]) + '.zip');
+                    DeleteFileUTF8(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-' + ExtractFileNameOnly(myStringList[n]) + '.zip');
                   myStringList.Free;
                   if fmMain.IsDirectoryEmpty(AttReadDir) = True then
                     DeleteDirectory(AttReadDir, False);
@@ -359,13 +335,9 @@ begin
               n := 0;
               try
                 AttReadDir := ExtractFileNameWithoutExt(sqReadSubjects.FileName);
-                while FileExistsUTF8(AttReadDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-img' + FormatFloat('0000', n) + '.jpeg') = True do
+                while FileExistsUTF8(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg') = True do
                 begin
-                  DeleteFileUTF8(AttReadDir + DirectorySeparator +
-                    sqReadNotes.FieldByName('NotesUID').AsString +
-                    '-img' + FormatFloat('0000', n) + '.jpeg');
+                  DeleteFileUTF8(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg');
                   Inc(n);
                 end;
                 if fmMain.IsDirectoryEmpty(AttReadDir) = True then
@@ -448,10 +420,8 @@ begin
       ReWrite(myFile);
       WriteLn(myFile, '<HTML>');
       WriteLn(myFile, '   <HEAD>');
-      WriteLn(myFile, '   <meta http-equiv="Content-Type" ' +
-        'content="text/html; charset=UTF-8">');
-      WriteLn(myFile, '      <TITLE>' + ExtractFileNameOnly(
-        fmMain.sqSubjects.FileName) + '</TITLE>');
+      WriteLn(myFile, '   <meta http-equiv="Content-Type" ' + 'content="text/html; charset=UTF-8">');
+      WriteLn(myFile, '      <TITLE>' + ExtractFileNameOnly(fmMain.sqSubjects.FileName) + '</TITLE>');
       WriteLn(myFile, '   </HEAD>');
       WriteLn(myFile, '   <BODY>');
       while not sqReadSubjects.EOF do
@@ -470,14 +440,10 @@ begin
           // Add notes
           if fmMain.miOrderByTitle.Checked = True then
             sqReadNotes.SQL :=
-              'Select * from Notes where ID_Subjects = ' +
-              sqReadSubjects.FieldByName('IDSubjects').AsString +
-              ' order by NotesTitle, IDNotes'
+              'Select * from Notes where ID_Subjects = ' + sqReadSubjects.FieldByName('IDSubjects').AsString + ' order by NotesTitle, IDNotes'
           else
             sqReadNotes.SQL :=
-              'Select * from Notes where ID_Subjects = ' +
-              sqReadSubjects.FieldByName('IDSubjects').AsString +
-              ' order by NotesDate, IDNotes';
+              'Select * from Notes where ID_Subjects = ' + sqReadSubjects.FieldByName('IDSubjects').AsString + ' order by NotesDate, IDNotes';
           sqReadNotes.Open;
           while not sqReadNotes.EOF do
           begin
@@ -489,8 +455,7 @@ begin
             WriteLn(myFile, '<H2>' + SubNotesText + '</H2>');
             // Add date
             if cbNoExpDate.Checked = True then
-              WriteLn(myFile, '<H3>' + sqReadNotes.FieldByName(
-                'NotesDate').AsString + '</H3>');
+              WriteLn(myFile, '<H3>' + sqReadNotes.FieldByName('NotesDate').AsString + '</H3>');
             // Add text
             // Text is not encrypted
             if sqReadNotes.FieldByName('NotesCheckPwd').AsString = '' then
@@ -514,9 +479,7 @@ begin
                 else
                   HTMLFnSize := 7;
                 SubNotesText :=
-                  StringReplace(SubNotesText, 'size="' + IntToStr(FnSize) +
-                  '" face="', 'size="' + IntToStr(HTMLFnSize) + '" face="',
-                  [rfIgnoreCase, rfReplaceAll]);
+                  StringReplace(SubNotesText, 'size="' + IntToStr(FnSize) + '" face="', 'size="' + IntToStr(HTMLFnSize) + '" face="', [rfIgnoreCase, rfReplaceAll]);
               end;
               // Set the tags for lists
               IniIndent := 0;
@@ -528,9 +491,7 @@ begin
                 EndIndent := UTF8Pos('</blockquote>', SubNotesText) - 1;
                 while IniIndent < EndIndent do
                 begin
-                  if ((UTF8Copy(SubNotesText, IniIndent, 3) = '>1.') or
-                    (UTF8Copy(SubNotesText, IniIndent, 3) = '>A.') or
-                    (UTF8Copy(SubNotesText, IniIndent, 3) = '>a.')) then
+                  if ((UTF8Copy(SubNotesText, IniIndent, 3) = '>1.') or (UTF8Copy(SubNotesText, IniIndent, 3) = '>A.') or (UTF8Copy(SubNotesText, IniIndent, 3) = '>a.')) then
                     flNumList := True;
                   if SubNotesText[IniIndent] = LineEnding then
                     SubNotesText[IniIndent] := #3; // A code to be replaced with <il>
@@ -541,16 +502,14 @@ begin
                 if flNumList = True then
                 begin
                   SubNotesText :=
-                    StringReplace(SubNotesText, '<blockquote>',
-                    '<p align=left><ol><li>', []);
+                    StringReplace(SubNotesText, '<blockquote>', '<p align=left><ol><li>', []);
                   SubNotesText :=
                     StringReplace(SubNotesText, '</blockquote>', '</li></ol></p>', []);
                 end
                 else
                 begin
                   SubNotesText :=
-                    StringReplace(SubNotesText, '<blockquote>',
-                    '<p align=left><ul><li>', []);
+                    StringReplace(SubNotesText, '<blockquote>', '<p align=left><ul><li>', []);
                   SubNotesText :=
                     StringReplace(SubNotesText, '</blockquote>', '</li></ul></p>', []);
                 end;
@@ -562,52 +521,40 @@ begin
                 for NumList := 1 to 100 do
                 begin
                   SubNotesText :=
-                    StringReplace(SubNotesText, IntToStr(NumList) +
-                    '.' + #9, '', [rfReplaceAll]);
+                    StringReplace(SubNotesText, IntToStr(NumList) + '.' + #9, '', [rfReplaceAll]);
                 end;
                 for NumList := 65 to 90 do
                 begin
                   SubNotesText :=
-                    StringReplace(SubNotesText, char(NumList) +
-                    '.' + #9, '', [rfReplaceAll]);
+                    StringReplace(SubNotesText, char(NumList) + '.' + #9, '', [rfReplaceAll]);
                 end;
                 for NumList := 97 to 122 do
                 begin
                   SubNotesText :=
-                    StringReplace(SubNotesText, char(NumList) +
-                    '.' + #9, '', [rfReplaceAll]);
+                    StringReplace(SubNotesText, char(NumList) + '.' + #9, '', [rfReplaceAll]);
                 end;
                 SubNotesText :=
                   StringReplace(SubNotesText, '•' + #9, '', [rfReplaceAll]);
                 // Remove alignment tags within a list to avoid empty rows
                 // Alignment is always left
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li><p align=left>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li><p align=left>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li><p align=center>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li><p align=center>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li><p align=right>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li><p align=right>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li><p align=justify>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li><p align=justify>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li></p><p align=left>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li></p><p align=left>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li></p><p align=center>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li></p><p align=center>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li></p><p align=right>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li></p><p align=right>', '<li>', [rfReplaceAll]);
                 SubNotesText :=
-                  StringReplace(SubNotesText, '<li></p><p align=justify>',
-                  '<li>', [rfReplaceAll]);
+                  StringReplace(SubNotesText, '<li></p><p align=justify>', '<li>', [rfReplaceAll]);
               end;
-              SubNotesText := StringReplace(SubNotesText, LineEnding,
-                '<p>', [rfReplaceAll]);
+              SubNotesText := StringReplace(SubNotesText, LineEnding, '<p>', [rfReplaceAll]);
             end
             else
             begin
@@ -620,16 +567,10 @@ begin
             n := 0;
             AttReadDir := ExtractFileNameWithoutExt(sqReadSubjects.FileName);
             AttWriteDir := ExtractFileDir(fmMain.sdSaveDialog.FileName);
-            while FileExistsUTF8(AttReadDir + DirectorySeparator +
-                sqReadNotes.FieldByName('NotesUID').AsString +
-                '-img' + FormatFloat('0000', n) + '.jpeg') do
+            while FileExistsUTF8(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg') do
             begin
-              CopyFile(AttReadDir + DirectorySeparator +
-                sqReadNotes.FieldByName('NotesUID').AsString +
-                '-img' + FormatFloat('0000', n) + '.jpeg',
-                AttWriteDir + DirectorySeparator +
-                sqReadNotes.FieldByName('NotesUID').AsString +
-                '-img' + FormatFloat('0000', n) + '.jpeg');
+              CopyFile(AttReadDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg',
+                AttWriteDir + DirectorySeparator + sqReadNotes.FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', n) + '.jpeg');
               Inc(n);
             end;
             // Save activities
@@ -653,31 +594,24 @@ begin
               SubActText := sqReadNotes.FieldByName('NotesActivities').AsString;
               WriteLn(myFile, '<tr>');
               // Remove code column of the first row
-              SubActText := UTF8Copy(SubActText, UTF8Pos(#9, SubActText) + 1,
-                UTF8Length(SubActText));
+              SubActText := UTF8Copy(SubActText, UTF8Pos(#9, SubActText) + 1, UTF8Length(SubActText));
               PosName := 1;
               stSpcInd := '';
               while UTF8Length(SubActText) > 0 do
               begin
                 // The field is activity name, so is indented
                 if PosName = 2 then
-                  WriteLn(myFile, '<td><font size="1">' + stSpcInd +
-                    Copy(SubActText, 1, Pos(#9, SubActText) - 1) +
-                    '</font></td>')
+                  WriteLn(myFile, '<td><font size="1">' + stSpcInd + Copy(SubActText, 1, Pos(#9, SubActText) - 1) + '</font></td>')
                 // The field is not activity name
                 else
-                  WriteLn(myFile, '<td><font size="1">' +
-                    Copy(SubActText, 1, Pos(#9, SubActText) - 1) +
-                    '</font></td>');
-                SubActText := UTF8Copy(SubActText, UTF8Pos(#9, SubActText) +
-                  1, UTF8Length(SubActText));
+                  WriteLn(myFile, '<td><font size="1">' + Copy(SubActText, 1, Pos(#9, SubActText) - 1) + '</font></td>');
+                SubActText := UTF8Copy(SubActText, UTF8Pos(#9, SubActText) + 1, UTF8Length(SubActText));
                 Inc(PosName);
                 if UTF8Copy(SubActText, 1, 1) = LineEnding then
                 begin
                   SubActText := UTF8Copy(SubActText, 2, UTF8Length(SubActText));
                   // Get the code and remove code column
-                  if fmMain.CheckNumbers(UTF8Copy(SubActText, 2,
-                    UTF8Pos(#9, SubActText) - 2)) = True then
+                  if fmMain.CheckNumbers(UTF8Copy(SubActText, 2, UTF8Pos(#9, SubActText) - 2)) = True then
                   begin
                     SpIndent :=
                       StrToInt(UTF8Copy(SubActText, 2, UTF8Pos(#9, SubActText) - 2));
@@ -685,9 +619,7 @@ begin
                     for i := 1 to SpIndent do
                       stSpcInd := stSpcInd + '&nbsp;';
                   end;
-                  SubActText :=
-                    UTF8Copy(SubActText, UTF8Pos(#9, SubActText) +
-                    1, UTF8Length(SubActText));
+                  SubActText := UTF8Copy(SubActText, UTF8Pos(#9, SubActText) + 1, UTF8Length(SubActText));
                   WriteLn(myFile, '</tr>' + LineEnding + '<tr>');
                   PosName := 0;
                 end;

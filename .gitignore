@@ -1,0 +1,4 @@
+*.compiled
+*.ppu
+*.o
+backup

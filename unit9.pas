@@ -71,12 +71,9 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormShow(Sender: TObject);
-    procedure grCalGridDrawCell(Sender: TObject; aCol, aRow: integer;
-      aRect: TRect; aState: TGridDrawState);
-    procedure grCalGridMouseWheelDown(Sender: TObject; Shift: TShiftState;
-      MousePos: TPoint; var Handled: boolean);
-    procedure grCalGridMouseWheelUp(Sender: TObject; Shift: TShiftState;
-      MousePos: TPoint; var Handled: boolean);
+    procedure grCalGridDrawCell(Sender: TObject; aCol, aRow: integer; aRect: TRect; aState: TGridDrawState);
+    procedure grCalGridMouseWheelDown(Sender: TObject; Shift: TShiftState; MousePos: TPoint; var Handled: boolean);
+    procedure grCalGridMouseWheelUp(Sender: TObject; Shift: TShiftState; MousePos: TPoint; var Handled: boolean);
     procedure lbxResourcesClick(Sender: TObject);
     procedure rgCalRangeClick(Sender: TObject);
   private
@@ -131,8 +128,7 @@ begin
   CreateCal(True, False);
 end;
 
-procedure TfmCalendar.grCalGridDrawCell(Sender: TObject; aCol, aRow: integer;
-  aRect: TRect; aState: TGridDrawState);
+procedure TfmCalendar.grCalGridDrawCell(Sender: TObject; aCol, aRow: integer; aRect: TRect; aState: TGridDrawState);
 begin
   // Format output in the grid
   if grCalGrid.Cells[0, aRow] <> '' then
@@ -153,15 +149,13 @@ begin
   end;
 end;
 
-procedure TfmCalendar.grCalGridMouseWheelDown(Sender: TObject;
-  Shift: TShiftState; MousePos: TPoint; var Handled: boolean);
+procedure TfmCalendar.grCalGridMouseWheelDown(Sender: TObject; Shift: TShiftState; MousePos: TPoint; var Handled: boolean);
 begin
   // Scroll down faster
   grCalGrid.Row := grCalGrid.Row + grCalGrid.VisibleRowCount div 2;
 end;
 
-procedure TfmCalendar.grCalGridMouseWheelUp(Sender: TObject;
-  Shift: TShiftState; MousePos: TPoint; var Handled: boolean);
+procedure TfmCalendar.grCalGridMouseWheelUp(Sender: TObject; Shift: TShiftState; MousePos: TPoint; var Handled: boolean);
 begin
   // Scroll up faster
   grCalGrid.Row := grCalGrid.Row - grCalGrid.VisibleRowCount div 2;
@@ -265,12 +259,9 @@ begin
       TableName := 'Notes';
       PrimaryKey := 'IDNotes';
       if rgCalRange.ItemIndex = 0 then
-        SQL := 'Select IDNotes, NotesTitle, NotesDateFormat, NotesActivities from Notes '
-          + 'where NotesActivities <> ' + #39#39 + ' order by IDNotes'
+        SQL := 'Select IDNotes, NotesTitle, NotesDateFormat, NotesActivities from Notes ' + 'where NotesActivities <> ' + #39#39 + ' order by IDNotes'
       else
-        SQL := 'Select IDNotes, NotesTitle, NotesDateFormat, NotesActivities from Notes '
-          + 'where NotesActivities <> ' + #39#39 + ' and IDNotes = ' +
-          fmMain.sqNotes.FieldByName('IDNotes').AsString + ' order by IDNotes';
+        SQL := 'Select IDNotes, NotesTitle, NotesDateFormat, NotesActivities from Notes ' + 'where NotesActivities <> ' + #39#39 + ' and IDNotes = ' + fmMain.sqNotes.FieldByName('IDNotes').AsString + ' order by IDNotes';
       Open;
       slResList := TStringList.Create;
       while not EOF do
@@ -337,8 +328,7 @@ begin
             bfCal.FieldByName('mdCalNotes').AsString :=
               UTF8Copy(myData, 1, UTF8Pos(#9, myData) - 1);
           myData := UTF8Copy(myData, UTF8Pos(#9, myData) + 1, UTF8Length(myData));
-          myData := UTF8Copy(myData, UTF8Pos(LineEnding, myData) +
-            1, UTF8Length(myData));
+          myData := UTF8Copy(myData, UTF8Pos(LineEnding, myData) + 1, UTF8Length(myData));
           bfCal.Post;
           // Remove record if the selected resource is not present
           if flGetResList = False then
@@ -347,8 +337,7 @@ begin
             begin
               slResList.Clear;
               slResList.Text :=
-                StringReplace(bfCal.FieldByName('mdCalResources').AsString,
-                ', ', LineEnding, [rfReplaceAll]);
+                StringReplace(bfCal.FieldByName('mdCalResources').AsString, ', ', LineEnding, [rfReplaceAll]);
               if slResList.IndexOf(lbxResources.Items[lbxResources.ItemIndex]) < 0 then
               begin
                 bfCal.Delete;
@@ -374,12 +363,7 @@ begin
       iTot := 0;
       while not bfCal.EOF do
       begin
-        if ((not (UpperCase(bfCal.FieldByName('mdCalState').AsString) = 'DONE')) and
-          ((bfCal.FieldByName('mdCalStartDate').AsDateTime >= clCalStart.DateTime) or
-          (bfCal.FieldByName('mdCalStartDate').AsString = '')) and
-          ((bfCal.FieldByName('mdCalEndDate').AsDateTime <= clCalEnd.DateTime) or
-          (bfCal.FieldByName('mdCalEndDate').AsString = '')) and
-          (Copy(bfCal.FieldByName('mdCalCode').AsString, 1, 1) = '*')) then
+        if ((not (UpperCase(bfCal.FieldByName('mdCalState').AsString) = 'DONE')) and ((bfCal.FieldByName('mdCalStartDate').AsDateTime >= clCalStart.DateTime) or (bfCal.FieldByName('mdCalStartDate').AsString = '')) and ((bfCal.FieldByName('mdCalEndDate').AsDateTime <= clCalEnd.DateTime) or (bfCal.FieldByName('mdCalEndDate').AsString = '')) and (Copy(bfCal.FieldByName('mdCalCode').AsString, 1, 1) = '*')) then
         begin
           if flGetResList = True then
           begin
@@ -387,8 +371,7 @@ begin
             begin
               slResList2.Clear;
               slResList2.Text :=
-                StringReplace(bfCal.FieldByName('mdCalResources').AsString,
-                ', ', LineEnding, [rfReplaceAll]);
+                StringReplace(bfCal.FieldByName('mdCalResources').AsString, ', ', LineEnding, [rfReplaceAll]);
               for n := 0 to slResList2.Count - 1 do
               begin
                 if lbxResources.Items.IndexOf(slResList2[n]) < 0 then
@@ -407,33 +390,23 @@ begin
           grCalGrid.Cells[0, i] :=
             grCalGrid.Cells[0, i] + bfCal.FieldByName('mdCalNoteID').AsString;
           grCalGrid.Cells[1, i] :=
-            bfCal.FieldByName('mdCalName').AsString + ' [' +
-            bfCal.FieldByName('mdCalNoteTitle').AsString + ']';
+            bfCal.FieldByName('mdCalName').AsString + ' [' + bfCal.FieldByName('mdCalNoteTitle').AsString + ']';
           Inc(i);
           grCalGrid.RowCount := i + 1;
-          if ((bfCal.FieldByName('mdCalStartDate').AsDateTime > 0) and
-            (bfCal.FieldByName('mdCalEndDate').AsDateTime > 0)) then
+          if ((bfCal.FieldByName('mdCalStartDate').AsDateTime > 0) and (bfCal.FieldByName('mdCalEndDate').AsDateTime > 0)) then
           begin
             grCalGrid.Cells[1, i] :=
-              FormatDateTime(FDate.LongDateFormat,
-              bfCal.FieldByName('mdCalStartDate').AsDateTime) + ' - ' +
-              FormatDateTime(FDate.LongDateFormat,
-              bfCal.FieldByName('mdCalEndDate').AsDateTime) + ' | ' +
-              bfCal.FieldByName('mdCalState').AsString;
+              FormatDateTime(FDate.LongDateFormat, bfCal.FieldByName('mdCalStartDate').AsDateTime) + ' - ' + FormatDateTime(FDate.LongDateFormat, bfCal.FieldByName('mdCalEndDate').AsDateTime) + ' | ' + bfCal.FieldByName('mdCalState').AsString;
           end
           else if bfCal.FieldByName('mdCalStartDate').AsDateTime > 0 then
           begin
             grCalGrid.Cells[1, i] :=
-              FormatDateTime(FDate.LongDateFormat,
-              bfCal.FieldByName('mdCalStartDate').AsDateTime) + ' - ' +
-              stNoDate + ' | ' + bfCal.FieldByName('mdCalState').AsString;
+              FormatDateTime(FDate.LongDateFormat, bfCal.FieldByName('mdCalStartDate').AsDateTime) + ' - ' + stNoDate + ' | ' + bfCal.FieldByName('mdCalState').AsString;
           end
           else if bfCal.FieldByName('mdCalEndDate').AsDateTime > 0 then
           begin
             grCalGrid.Cells[1, i] :=
-              stNoDate + ' - ' + FormatDateTime(FDate.LongDateFormat,
-              bfCal.FieldByName('mdCalEndDate').AsDateTime) +
-              ' | ' + bfCal.FieldByName('mdCalState').AsString;
+              stNoDate + ' - ' + FormatDateTime(FDate.LongDateFormat, bfCal.FieldByName('mdCalEndDate').AsDateTime) + ' | ' + bfCal.FieldByName('mdCalState').AsString;
           end
           else
           begin
@@ -443,10 +416,7 @@ begin
           Inc(i);
           grCalGrid.RowCount := i + 1;
           grCalGrid.Cells[1, i] :=
-            bfCal.FieldByName('mdCalResources').AsString + ' | ' +
-            bfCal.FieldByName('mdCalPriority').AsString + ' | ' +
-            bfCal.FieldByName('mdCalCompletion').AsString + '% | ' +
-            bfCal.FieldByName('mdCalCost').AsString + ' ' + CurrencyString;
+            bfCal.FieldByName('mdCalResources').AsString + ' | ' + bfCal.FieldByName('mdCalPriority').AsString + ' | ' + bfCal.FieldByName('mdCalCompletion').AsString + '% | ' + bfCal.FieldByName('mdCalCost').AsString + ' ' + CurrencyString;
         end;
         bfCal.Next;
       end;
@@ -489,11 +459,7 @@ begin
       iSeq := 0;
       while not bfCal.EOF do
       begin
-        if ((not (UpperCase(bfCal.FieldByName('mdCalState').AsString) = 'DONE')) and
-          ((bfCal.FieldByName('mdCalStartDate').AsDateTime >= clCalStart.DateTime) or
-          (bfCal.FieldByName('mdCalStartDate').AsString = '')) and
-          ((bfCal.FieldByName('mdCalEndDate').AsDateTime <= clCalEnd.DateTime) or
-          (bfCal.FieldByName('mdCalEndDate').AsString = ''))) then
+        if ((not (UpperCase(bfCal.FieldByName('mdCalState').AsString) = 'DONE')) and ((bfCal.FieldByName('mdCalStartDate').AsDateTime >= clCalStart.DateTime) or (bfCal.FieldByName('mdCalStartDate').AsString = '')) and ((bfCal.FieldByName('mdCalEndDate').AsDateTime <= clCalEnd.DateTime) or (bfCal.FieldByName('mdCalEndDate').AsString = ''))) then
         begin
           WriteLn(flCalendar, 'BEGIN:VCALENDAR');
           WriteLn(flCalendar, 'PRODID:MyNotex Activity List');
@@ -501,49 +467,29 @@ begin
           WriteLn(flCalendar, 'METHOD:PUBLISH');
           WriteLn(flCalendar, 'BEGIN:VTODO');
           CreateGUID(myGUID);
-          WriteLn(flCalendar, 'UID:' + FormatDateTime('YYYYMMDD', Now) +
-            'T' + FormatDateTime('HHMMSS', Now) + 'Z' +
-            Copy(GUIDToString(myGUID), 2, Length(GUIDToString(myGUID)) - 2));
-          WriteLn(flCalendar, 'DTSTAMP:' + FormatDateTime('YYYYMMDD', Now) +
-            'T' + FormatDateTime('HHMMSS', Now) + 'Z');
-          WriteLn(flCalendar, 'SUMMARY:' + CleanString(
-            bfCal.FieldByName('mdCalName').AsString));
+          WriteLn(flCalendar, 'UID:' + FormatDateTime('YYYYMMDD', Now) + 'T' + FormatDateTime('HHMMSS', Now) + 'Z' + Copy(GUIDToString(myGUID), 2, Length(GUIDToString(myGUID)) - 2));
+          WriteLn(flCalendar, 'DTSTAMP:' + FormatDateTime('YYYYMMDD', Now) + 'T' + FormatDateTime('HHMMSS', Now) + 'Z');
+          WriteLn(flCalendar, 'SUMMARY:' + CleanString(bfCal.FieldByName('mdCalName').AsString));
           if bfCal.FieldByName('mdCalNotes').AsString <> '' then
-            WriteLn(flCalendar, 'DESCRIPTION:' + stResources + ': ' +
-              CleanString(bfCal.FieldByName('mdCalResources').AsString) +
-              '. ' + stCost + ': ' + CleanString(
-              bfCal.FieldByName('mdCalCost').AsString) + ' ' +
-              CurrencyString + '.' + CleanString(LineEnding +
-              LineEnding + bfCal.FieldByName('mdCalNotes').AsString))
+            WriteLn(flCalendar, 'DESCRIPTION:' + stResources + ': ' + CleanString(bfCal.FieldByName('mdCalResources').AsString) + '. ' + stCost + ': ' + CleanString(bfCal.FieldByName('mdCalCost').AsString) + ' ' + CurrencyString + '.' + CleanString(LineEnding + LineEnding + bfCal.FieldByName('mdCalNotes').AsString))
           else
-            WriteLn(flCalendar, 'DESCRIPTION:' + stResources + ': ' +
-              CleanString(bfCal.FieldByName('mdCalResources').AsString) +
-              '. ' + stCost + ': ' + CleanString(
-              bfCal.FieldByName('mdCalCost').AsString) + ' ' +
-              CurrencyString + '.');
+            WriteLn(flCalendar, 'DESCRIPTION:' + stResources + ': ' + CleanString(bfCal.FieldByName('mdCalResources').AsString) + '. ' + stCost + ': ' + CleanString(bfCal.FieldByName('mdCalCost').AsString) + ' ' + CurrencyString + '.');
           if bfCal.FieldByName('mdCalEndDate').AsString <> '' then
-            WriteLn(flCalendar, 'DUE;VALUE=DATE:' +
-              FormatDateTime('YYYYMMDD', bfCal.FieldByName('mdCalEndDate').AsDateTime));
+            WriteLn(flCalendar, 'DUE;VALUE=DATE:' + FormatDateTime('YYYYMMDD', bfCal.FieldByName('mdCalEndDate').AsDateTime));
           if bfCal.FieldByName('mdCalStartDate').AsString <> '' then
-            WriteLn(flCalendar, 'DTSTART;VALUE=DATE:' +
-              FormatDateTime('YYYYMMDD', bfCal.FieldByName(
-              'mdCalStartDate').AsDateTime));
+            WriteLn(flCalendar, 'DTSTART;VALUE=DATE:' + FormatDateTime('YYYYMMDD', bfCal.FieldByName('mdCalStartDate').AsDateTime));
           WriteLn(flCalendar, 'CLASS:PUBLIC');
-          WriteLn(flCalendar, 'PERCENT-COMPLETE:' +
-            bfCal.FieldByName('mdCalCompletion').AsString);
+          WriteLn(flCalendar, 'PERCENT-COMPLETE:' + bfCal.FieldByName('mdCalCompletion').AsString);
           if UpperCase(bfCal.FieldByName('mdCalState').AsString) = 'DONE' then
             WriteLn(flCalendar, 'STATUS:COMPLETED')
           else if UpperCase(bfCal.FieldByName('mdCalState').AsString) = 'STARTED' then
             WriteLn(flCalendar, 'STATUS:IN-PROCESS');
           // If status is to do, nothing must be added
-          WriteLn(flCalendar, 'PRIORITY:' + bfCal.FieldByName(
-            'mdCalPriority').AsString);
+          WriteLn(flCalendar, 'PRIORITY:' + bfCal.FieldByName('mdCalPriority').AsString);
           WriteLn(flCalendar, 'SEQUENCE:' + IntToStr(iSeq));
           Inc(iSeq);
-          WriteLn(flCalendar, 'CREATED:' + FormatDateTime('YYYYMMDD', Now) +
-            'T' + FormatDateTime('HHMMSS', Now) + 'Z');
-          WriteLn(flCalendar, 'LAST-MODIFIED:' + FormatDateTime('YYYYMMDD', Now) +
-            'T' + FormatDateTime('HHMMSS', Now) + 'Z');
+          WriteLn(flCalendar, 'CREATED:' + FormatDateTime('YYYYMMDD', Now) + 'T' + FormatDateTime('HHMMSS', Now) + 'Z');
+          WriteLn(flCalendar, 'LAST-MODIFIED:' + FormatDateTime('YYYYMMDD', Now) + 'T' + FormatDateTime('HHMMSS', Now) + 'Z');
           WriteLn(flCalendar, 'END:VTODO');
           WriteLn(flCalendar, 'END:VCALENDAR');
         end;
@@ -563,8 +509,7 @@ begin
     stDate := fmMain.ConvertDateFormat(stDate, stDtFormat, fmMain.DateOrder);
     // Set the date separator of the OS
     // necessary for the bfCal component
-    if TryStrToDate(StringReplace(stDate, '-', DateSeparator, [rfReplaceAll]),
-      Result, FDate.ShortDateFormat) = False then
+    if TryStrToDate(StringReplace(stDate, '-', DateSeparator, [rfReplaceAll]), Result, FDate.ShortDateFormat) = False then
       Result := 0;
     // This should never happen, anyway...
   except
@@ -585,8 +530,4 @@ initialization
   {$I unit9.lrs}
 
 end.
-
-
-
-
 

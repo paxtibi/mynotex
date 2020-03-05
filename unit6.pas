@@ -123,12 +123,12 @@ begin
     10: LevResize := 2.0;
     11: LevResize := 3.0;
   end;
-  lbSize.Caption := LabelCaption + ' ' + IntToStr(Trunc(ImageWidth * LevResize)) +
-    'x' + IntToStr(Trunc(ImageHeigth * LevResize));
+  lbSize.Caption := LabelCaption + ' ' + IntToStr(Trunc(ImageWidth * LevResize)) + 'x' + IntToStr(Trunc(ImageHeigth * LevResize));
 end;
 
 initialization
   {$I unit6.lrs}
 
 end.
+
 

@@ -96,8 +96,7 @@ end;
 
 procedure TfmMoveNote.bnMoveNoteClick(Sender: TObject);
 var
-  AttDir, NtTitle, NtText, NtActivities, NtTags, NTFontCol, NTBackCol,
-  NtAttName, NTDateFormat, NTOldUID, NTCheckPwd: string;
+  AttDir, NtTitle, NtText, NtActivities, NtTags, NTFontCol, NTBackCol, NtAttName, NTDateFormat, NTOldUID, NTCheckPwd: string;
   NtDate, NTDTMod: TDateTime;
   IDOldNote, IDNewNote, i: integer;
   myStringList: TStringList;
@@ -114,8 +113,7 @@ begin
       sqMove.TableName := 'Notes';
       sqMove.PrimaryKey := 'IDNotes';
       sqMove.AutoIncrementKey := True;
-      sqMove.SQL := 'Select * from Notes where IDNotes = ' +
-        fmMain.sqNotes.FieldByName('IDNotes').AsString;
+      sqMove.SQL := 'Select * from Notes where IDNotes = ' + fmMain.sqNotes.FieldByName('IDNotes').AsString;
       sqMove.Open;
       with sqMove do
       begin
@@ -151,8 +149,7 @@ begin
         FieldByName('NotesUID').AsString :=
           Copy(GUIDToString(myGUID), 2, Length(GUIDToString(myGUID)) - 2);
         // Update possibile UID in images tags
-        NtText := StringReplace(NtText, '<IMG SRC="' + NTOldUID,
-          '<IMG SRC="' + FieldByName('NotesUID').AsString, [rfReplaceAll]);
+        NtText := StringReplace(NtText, '<IMG SRC="' + NTOldUID, '<IMG SRC="' + FieldByName('NotesUID').AsString, [rfReplaceAll]);
         FieldByName('NotesText').AsString := NtText;
         Post;
         ApplyUpdates;
@@ -169,11 +166,8 @@ begin
           myStringList := TStringList.Create;
           myStringList.Text := FieldByName('NotesAttName').AsString;
           for i := 0 to myStringList.Count - 1 do
-            RenameFileUTF8(AttDir + DirectorySeparator + NTOldUID +
-              '-' + ExtractFileNameOnly(myStringList[i]) + '.zip',
-              AttDir + DirectorySeparator + FieldByName(
-              'NotesUID').AsString + '-' + ExtractFileNameOnly(
-              myStringList[i]) + '.zip');
+            RenameFileUTF8(AttDir + DirectorySeparator + NTOldUID + '-' + ExtractFileNameOnly(myStringList[i]) + '.zip',
+              AttDir + DirectorySeparator + FieldByName('NotesUID').AsString + '-' + ExtractFileNameOnly(myStringList[i]) + '.zip');
           myStringList.Free;
         end;
         // Rename possibile pictures before deleting note
@@ -181,13 +175,10 @@ begin
         if DirectoryExistsUTF8(AttDir) = True then
         begin
           i := 0;
-          while FileExistsUTF8(AttDir + DirectorySeparator + NTOldUID +
-              '-img' + FormatFloat('0000', i) + '.jpeg') = True do
+          while FileExistsUTF8(AttDir + DirectorySeparator + NTOldUID + '-img' + FormatFloat('0000', i) + '.jpeg') = True do
           begin
-            RenameFileUTF8(AttDir + DirectorySeparator + NTOldUID +
-              '-img' + FormatFloat('0000', i) + '.jpeg',
-              AttDir + DirectorySeparator + FieldByName(
-              'NotesUID').AsString + '-img' + FormatFloat('0000', i) + '.jpeg');
+            RenameFileUTF8(AttDir + DirectorySeparator + NTOldUID + '-img' + FormatFloat('0000', i) + '.jpeg',
+              AttDir + DirectorySeparator + FieldByName('NotesUID').AsString + '-img' + FormatFloat('0000', i) + '.jpeg');
             Inc(i);
           end;
         end;

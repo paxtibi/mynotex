@@ -50,8 +50,7 @@ type
     lbComments: TLabel;
     procedure bnSubCommCancelClick(Sender: TObject);
     procedure bnSubCommOKClick(Sender: TObject);
-    procedure dbSubCommentsKeyDown(Sender: TObject; var Key: word;
-      Shift: TShiftState);
+    procedure dbSubCommentsKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -94,8 +93,7 @@ begin
   Close;
 end;
 
-procedure TfmCommentsSubjects.dbSubCommentsKeyDown(Sender: TObject;
-  var Key: word; Shift: TShiftState);
+procedure TfmCommentsSubjects.dbSubCommentsKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   // Put in edit the Memo (sometimes it doesn't)
   if fmMain.dsSubjects.State in [dsBrowse] then
@@ -128,5 +126,6 @@ initialization
   {$I unit4.lrs}
 
 end.
+
 
 

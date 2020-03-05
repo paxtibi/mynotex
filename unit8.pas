@@ -168,14 +168,12 @@ begin
     with fmMain.sqSubjects do
     begin
       Edit;
-      if ((cbColBack.Colors[cbColBack.ItemIndex] = clWhite) or
-        (cbColBack.Colors[cbColBack.ItemIndex] = clDefault)) then
+      if ((cbColBack.Colors[cbColBack.ItemIndex] = clWhite) or (cbColBack.Colors[cbColBack.ItemIndex] = clDefault)) then
         FieldByName('SubjectsBackColor').AsString := ''
       else
         FieldByName('SubjectsBackColor').AsString :=
           ColorToString(cbColBack.Colors[cbColBack.ItemIndex]);
-      if ((cbColFont.Colors[cbColFont.ItemIndex] = clBlack) or
-        (cbColFont.Colors[cbColFont.ItemIndex] = clDefault)) then
+      if ((cbColFont.Colors[cbColFont.ItemIndex] = clBlack) or (cbColFont.Colors[cbColFont.ItemIndex] = clDefault)) then
         FieldByName('SubjectsFontColor').AsString := ''
       else
         FieldByName('SubjectsFontColor').AsString :=
@@ -189,14 +187,12 @@ begin
     with fmMain.sqNotes do
     begin
       Edit;
-      if ((cbColBack.Colors[cbColBack.ItemIndex] = clWhite) or
-        (cbColBack.Colors[cbColBack.ItemIndex] = clDefault)) then
+      if ((cbColBack.Colors[cbColBack.ItemIndex] = clWhite) or (cbColBack.Colors[cbColBack.ItemIndex] = clDefault)) then
         FieldByName('NotesBackColor').AsString := ''
       else
         FieldByName('NotesBackColor').AsString :=
           ColorToString(cbColBack.Colors[cbColBack.ItemIndex]);
-      if ((cbColFont.Colors[cbColFont.ItemIndex] = clBlack) or
-        (cbColFont.Colors[cbColFont.ItemIndex] = clDefault)) then
+      if ((cbColFont.Colors[cbColFont.ItemIndex] = clBlack) or (cbColFont.Colors[cbColFont.ItemIndex] = clDefault)) then
         FieldByName('NotesFontColor').AsString := ''
       else
         FieldByName('NotesFontColor').AsString :=
@@ -218,4 +214,5 @@ initialization
   {$I unit8.lrs}
 
 end.
+
 
